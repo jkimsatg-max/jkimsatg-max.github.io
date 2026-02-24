@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - St. Anthony the Great Orthodox Church International Food Festival</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'church-gold': '#C9A961',
+                        'church-blue': '#1E3A8A',
+                        'church-red': '#9B2C2C',
+                        'warm-cream': '#FEF3C7',
+                        'deep-amber': '#92400E',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .gradient-header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-stone-50">
+
+<!-- Navigation -->
+<nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="https://dl.dropboxusercontent.com/scl/fi/1wsxg5q7q73klrr7570zy/Food-Festival-Logo-original.PNG?rlkey=uuy8ssqkzh49ejot9p8tbekyx"
+                     alt="Food Festival Logo"
+                     class="h-16 w-auto object-contain"
+                     onerror="this.style.display='none'">
+            </a>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Home</a>
+                <a href="cuisines.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Cuisines</a>
+                <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>
+                <a href="location.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Location</a>
+                <a href="contact.html" class="text-church-gold font-semibold border-b-2 border-church-gold">Contact</a>
+                <a href="tickets.html"
+                   class="bg-church-gold text-white px-6 py-2 rounded-full font-medium hover:bg-yellow-700 transition-all shadow-md">
+                    Tickets
+                </a>
+            </div>
+
+            <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="w-6 h-6 text-church-blue"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <div class="px-4 pt-2 pb-4 space-y-1">
+            <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Home</a>
+            <a href="cuisines.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Cuisines</a>
+            <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a>
+            <a href="location.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Location</a>
+            <a href="contact.html" class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">Contact</a>
+            <a href="tickets.html" class="block px-3 py-2 text-church-gold font-semibold">Tickets</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<section class="pt-32 pb-12 gradient-header">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Contact Us</h1>
+        <p class="text-white/90 text-lg">We’d love to hear from you</p>
+    </div>
+</section>
+
+<!-- Contact Cards -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+
+            <!-- Location -->
+            <div class="bg-stone-50 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+                <div class="bg-church-gold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="map-pin" class="w-8 h-8 text-white"></i>
+                </div>
+                <h3 class="font-serif text-xl font-bold mb-2">Location</h3>
+                <p class="text-gray-600 text-sm">
+                    16516 Square Lake Rd<br>
+                    Spring, TX 77378
+                </p>
+            </div>
+
+            <!-- Phone -->
+            <div class="bg-stone-50 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+                <div class="bg-church-gold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="phone" class="w-8 h-8 text-white"></i>
+                </div>
+                <h3 class="font-serif text-xl font-bold mb-2">Phone</h3>
+                <a href="tel:2813509807" class="text-church-blue hover:text-church-gold font-semibold text-lg">
+                    (281) 350-9807
+                </a>
+            </div>
+
+            <!-- Email -->
+            <div class="bg-stone-50 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+                <div class="bg-church-gold w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="mail" class="w-8 h-8 text-white"></i>
+                </div>
+                <h3 class="font-serif text-xl font-bold mb-2">Email</h3>
+                <a href="mailto:festival@stanthonysorthodox.org"
+                   class="text-church-blue hover:text-church-gold font-semibold">
+                    festival@stanthonysorthodox.org
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Contact Form -->
+        <div class="max-w-3xl mx-auto bg-stone-50 rounded-2xl p-10 shadow-lg">
+            <h2 class="font-serif text-2xl font-bold mb-6 text-center">Send Us a Message</h2>
+
+            <form class="space-y-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <input type="text" placeholder="First Name"
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-church-gold focus:outline-none">
+                    <input type="text" placeholder="Last Name"
+                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-church-gold focus:outline-none">
+                </div>
+
+                <input type="email" placeholder="Email Address"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-church-gold focus:outline-none">
+
+                <textarea rows="5" placeholder="Your Message"
+                    class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-church-gold focus:outline-none resize-none"></textarea>
+
+                <button type="submit"
+                    class="w-full bg-church-blue text-white py-3 rounded-full font-medium hover:bg-blue-900 transition-all shadow-md">
+                    Send Message
+                </button>
+            </form>
+        </div>
+
+    </div>
+</section>
+
+  
+   <!-- FAQ Section -->
+        <div class="mt-16 border-t-4 border-orthodox-gold pt-12">
+            <h2 class="font-cinzel text-2xl font-bold text-renaissance-brown mb-8 text-center">Frequently Asked Questions</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Is parking free?</h3>
+                    <p class="text-sm text-gray-600">Yes! Free parking is available on-site at the church and at the neighboring park. Shuttle service provided from remote lots.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Can I bring my dog?</h3>
+                    <p class="text-sm text-gray-600">Service animals are welcome. Please leave pets at home due to food service areas and large crowds.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">What payment methods are accepted?</h3>
+                    <p class="text-sm text-gray-600">Admission can be paid by cash or card. Food vendors use ticket system—ATMs available on-site.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Are there vegetarian options?</h3>
+                    <p class="text-sm text-gray-600">Absolutely! Many Orthodox fasting dishes are naturally vegan. Look for (V) markers on menu items.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Is the festival rain or shine?</h3>
+                    <p class="text-sm text-gray-600">Yes! Most vendors are under tents, and the church hall provides indoor space for some activities.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow border-l-4 border-orthodox-gold">
+                    <h3 class="font-bold text-renaissance-brown mb-2">Can I volunteer for just one day?</h3>
+                    <p class="text-sm text-gray-600">Yes! We welcome volunteers for single shifts or multiple days. Visit the volunteer tent on arrival.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ <!-- Footer -->
+    <footer class="bg-church-blue text-white pt-12 pb-6">
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="church" class="h-6 w-6 text-orthodox-gold"></i>
+                    <span class="font-cinzel font-bold text-white">St. Anthony's Festival</span>
+                </div>
+                <p class="text-sm leading-relaxed mb-4">
+                    Celebrating Orthodox tradition through international cuisine and cultural exchange since 2005.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-orthodox-gold hover:text-white transition"><i data-lucide="facebook" class="h-5 w-5"></i></a>
+                    <a href="#" class="text-orthodox-gold hover:text-white transition"><i data-lucide="instagram" class="h-5 w-5"></i></a>
+                    <a href="#" class="text-orthodox-gold hover:text-white transition"><i data-lucide="youtube" class="h-5 w-5"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-cinzel font-bold text-white mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-orthodox-gold transition">Home</a></li>
+                    <li><a href="menu.html" class="hover:text-orthodox-gold transition">Menu</a></li>
+                    <li><a href="itinerary.html" class="hover:text-orthodox-gold transition">Itinerary</a></li>
+                    <li><a href="tickets.html" class="hover:text-orthodox-gold transition">Tickets</a></li>
+                    <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-cinzel font-bold text-white mb-4">Contact Info</h4>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-start gap-2">
+                        <i data-lucide="map-pin" class="h-4 w-4 mt-1 text-orthodox-gold"></i>
+                        <span>16516 Square Lake Rd<br>Spring, TX 77378</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="phone" class="h-4 w-4 text-orthodox-gold"></i>
+                        <span>(281) 350-9807</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="mail" class="h-4 w-4 text-orthodox-gold"></i>
+                        <span>festival@stanthonysorthodox.org</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-cinzel font-bold text-white mb-4">Newsletter</h4>
+                <p class="text-sm mb-4">Subscribe for updates on vendors and special events.</p>
+                <form class="flex gap-2">
+                    <input type="email" placeholder="Your email" class="flex-1 px-3 py-2 bg-stone-800 border border-stone-600 rounded text-white placeholder-stone-400 focus:outline-none focus:border-orthodox-gold">
+                    <button type="submit" class="bg-orthodox-gold text-orthodox-red px-4 py-2 rounded font-bold hover:bg-yellow-400 transition">
+                        <i data-lucide="send" class="h-4 w-4"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 mt-8 pt-8 border-t border-stone-600 text-center text-sm">
+            <p>&copy; 2024 St. Anthony the Great Orthodox Church. All rights reserved. | <span class="text-orthodox-gold">Ancient Faith</span> Inspired</p>
+        </div>
+
+
+
+  
