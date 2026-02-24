@@ -309,41 +309,65 @@
         </div>
     </section>
 
-    <!-- Footer -->
+  <!-- Footer -->
     <footer class="bg-church-blue text-white pt-12 pb-6">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="flex items-center space-x-3 mb-4 md:mb-0">
-                    <img src="https://dl.dropboxusercontent.com/scl/fi/1wsxg5q7q73klrr7570zy/Food-Festival-Logo-original.PNG?rlkey=uuy8ssqkzh49ejot9p8tbekyx" 
-                         alt="Logo" 
-                         class="h-10 w-auto bg-white rounded-lg p-1"
-                         onerror="this.style.display='none'">
-                    <div>
-                        <h3 class="font-serif text-lg font-bold">St. Anthony the Great</h3>
-                        <p class="text-blue-200 text-xs">Orthodox Church</p>
-                    </div>
+        <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <i data-lucide="church" class="h-6 w-6 text-orthodox-gold"></i>
+                    <span class="font-cinzel font-bold text-white">St. Anthony's Festival</span>
                 </div>
-                <div class="flex space-x-6 text-sm">
-                    <a href="index.html" class="text-blue-200 hover:text-white">Home</a>
-                    <a href="cuisines.html" class="text-blue-200 hover:text-white">Cuisines</a>
-                    <a href="schedule.html" class="text-blue-200 hover:text-white">Schedule</a>
-                    <a href="location.html" class="text-blue-200 hover:text-white">Location</a>
-                    <a href="contact.html" class="text-blue-200 hover:text-white">Contact</a>
+                <p class="text-sm leading-relaxed mb-4">
+                    Celebrating Orthodox tradition through international cuisine and cultural exchange since 2005.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-orthodox-gold hover:text-white transition"><i data-lucide="facebook" class="h-5 w-5"></i></a>
+                    <a href="#" class="text-orthodox-gold hover:text-white transition"><i data-lucide="instagram" class="h-5 w-5"></i></a>
+                    <a href="#" class="text-orthodox-gold hover:text-white transition"><i data-lucide="youtube" class="h-5 w-5"></i></a>
                 </div>
             </div>
-            <div class="border-t border-white/20 mt-6 pt-6 text-center text-blue-200 text-sm">
-                &copy; 2024 St. Anthony the Great Orthodox Church. International Food Festival.
+            <div>
+                <h4 class="font-cinzel font-bold text-white mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="index.html" class="hover:text-orthodox-gold transition">Home</a></li>
+                    <li><a href="menu.html" class="hover:text-orthodox-gold transition">Menu</a></li>
+                    <li><a href="itinerary.html" class="hover:text-orthodox-gold transition">Itinerary</a></li>
+                    <li><a href="tickets.html" class="hover:text-orthodox-gold transition">Tickets</a></li>
+                    <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-cinzel font-bold text-white mb-4">Contact Info</h4>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex items-start gap-2">
+                        <i data-lucide="map-pin" class="h-4 w-4 mt-1 text-orthodox-gold"></i>
+                        <span>16516 Square Lake Rd<br>Spring, TX 77378</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="phone" class="h-4 w-4 text-orthodox-gold"></i>
+                        <span>(281) 350-9807</span>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-lucide="mail" class="h-4 w-4 text-orthodox-gold"></i>
+                        <span>festival@stanthonysorthodox.org</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-cinzel font-bold text-white mb-4">Newsletter</h4>
+                <p class="text-sm mb-4">Subscribe for updates on vendors and special events.</p>
+                <form class="flex gap-2">
+                    <input type="email" placeholder="Your email" class="flex-1 px-3 py-2 bg-stone-800 border border-stone-600 rounded text-white placeholder-stone-400 focus:outline-none focus:border-orthodox-gold">
+                    <button type="submit" class="bg-orthodox-gold text-orthodox-red px-4 py-2 rounded font-bold hover:bg-yellow-400 transition">
+                        <i data-lucide="send" class="h-4 w-4"></i>
+                    </button>
+                </form>
             </div>
         </div>
-    </footer>
+        <div class="max-w-6xl mx-auto px-4 mt-8 pt-8 border-t border-stone-600 text-center text-sm">
+            <p>&copy; 2024 St. Anthony the Great Orthodox Church. All rights reserved. | <span class="text-orthodox-gold">Ancient Faith</span> Inspired</p>
+        </div>
 
-    <script>
-        lucide.createIcons();
-        
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-    </script>
-</body>
-</html>
+
+
+  
