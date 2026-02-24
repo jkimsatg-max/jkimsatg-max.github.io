@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule - St. Anthony the Great Orthodox Church International Food Festival</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'church-gold': '#C9A961',
+                        'church-blue': '#1E3A8A',
+                        'church-red': '#9B2C2C',
+                        'warm-cream': '#FEF3C7',
+                        'deep-amber': '#92400E',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #D4AF37, #9B2C2C);
+        }
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 30px;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-stone-50">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="https://dl.dropboxusercontent.com/scl/fi/1wsxg5q7q73klrr7570zy/Food-Festival-Logo-original.PNG?rlkey=uuy8ssqkzh49ejot9p8tbekyx" 
+                         alt="Food Festival Logo" 
+                         class="h-16 w-auto object-contain"
+                         onerror="this.style.display='none'">
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Home</a>
+                    <a href="cuisines.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Cuisines</a>
+                    <a href="schedule.html" class="text-church-gold font-semibold border-b-2 border-church-gold">Schedule</a>
+                    <a href="location.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Location</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Contact</a>
+                    <a href="https://www.eventbrite.com/e/qigong-flow-for-the-2026-year-of-the-fire-horse-tickets-1981556014381?aff=ebdssbdestsearch" 
+                       target="_blank" 
+                       class="bg-church-gold text-white px-6 py-2 rounded-full font-medium hover:bg-yellow-700 transition-all shadow-md">
+                        Tickets
+                    </a>
+                </div>
+
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6 text-church-blue"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Home</a>
+                <a href="cuisines.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Cuisines</a>
+                <a href="schedule.html" class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">Schedule</a>
+                <a href="location.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Location</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Contact</a>
+                <a href="https://www.eventbrite.com/e/qigong-flow-for-the-2026-year-of-the-fire-horse-tickets-1981556014381?aff=ebdssbdestsearch" 
+                   target="_blank"
+                   class="block px-3 py-2 text-church-gold font-semibold">Tickets</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-32 pb-12 gradient-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Festival Schedule</h1>
+            <p class="text-white/90 text-lg">Three days of food, fun, and festivities</p>
+        </div>
+    </section>
+
+    <!-- Schedule Content -->
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Day 1 -->
+            <div class="mb-16">
+                <div class="text-center mb-8">
+                    <span class="inline-block bg-church-gold text-white px-4 py-1 rounded-full text-sm font-semibold mb-2">Day 1</span>
+                    <h2 class="font-serif text-3xl font-bold text-gray-900">Saturday, October 12</h2>
+                    <p class="text-gray-600">Grand Opening Day</p>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-gold text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            11:00 AM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Festival Opens</h3>
+                            <p class="text-gray-600">Opening ceremony with church blessing and ribbon cutting</p>
+                        </div>
+                        <i data-lucide="scissors" class="w-6 h-6 text-church-gold hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-gold text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            12:00 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Lunch Service Begins</h3>
+                            <p class="text-gray-600">All food stations open - Greek, Lebanese, Russian, and more</p>
+                        </div>
+                        <i data-lucide="utensils" class="w-6 h-6 text-church-gold hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-gold text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            2:00 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Live Music - Greek Band</h3>
+                            <p class="text-gray-600">Traditional Greek music and dance performances</p>
+                        </div>
+                        <i data-lucide="music" class="w-6 h-6 text-church-gold hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-gold text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            4:00 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Children's Activities</h3>
+                            <p class="text-gray-600">Face painting, games, and cultural crafts for kids</p>
+                        </div>
+                        <i data-lucide="palette" class="w-6 h-6 text-church-gold hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-gold text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            6:00 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Dinner & Dancing</h3>
+                            <p class="text-gray-600">International music and folk dancing - all welcome!</p>
+                        </div>
+                        <i data-lucide="users" class="w-6 h-6 text-church-gold hidden md:block"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="mb-16">
+                <div class="text-center mb-8">
+                    <span class="inline-block bg-church-blue text-white px-4 py-1 rounded-full text-sm font-semibold mb-2">Day 2</span>
+                    <h2 class="font-serif text-3xl font-bold text-gray-900">Sunday, October 13</h2>
+                    <p class="text-gray-600">Family Day</p>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-blue text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            11:00 AM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Divine Liturgy</h3>
+                            <p class="text-gray-600">Special festival blessing service (open to all)</p>
+                        </div>
+                        <i data-lucide="church" class="w-6 h-6 text-church-blue hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-blue text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            12:30 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Festival Opens</h3>
+                            <p class="text-gray-600">All food stations and vendors ready</p>
+                        </div>
+                        <i data-lucide="store" class="w-6 h-6 text-church-blue hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-blue text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            2:00 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Cultural Demonstrations</h3>
+                            <p class="text-gray-600">Cooking demos and traditional craft workshops</p>
+                        </div>
+                        <i data-lucide="chef-hat" class="w-6 h-6 text-church-blue hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-blue text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            4:00 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Youth Dance Performance</h3>
+                            <p class="text-gray-600">Traditional dances by church youth groups</p>
+                        </div>
+                        <i data-lucide="smile" class="w-6 h-6 text-church-blue hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-blue text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            7:00 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">International Music Night</h3>
+                            <p class="text-gray-600">Live band featuring music from around the world</p>
+                        </div>
+                        <i data-lucide="guitar" class="w-6 h-6 text-church-blue hidden md:block"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="mb-16">
+                <div class="text-center mb-8">
+                    <span class="inline-block bg-church-red text-white px-4 py-1 rounded-full text-sm font-semibold mb-2">Day 3</span>
+                    <h2 class="font-serif text-3xl font-bold text-gray-900">Monday, October 14</h2>
+                    <p class="text-gray-600">Closing Day</p>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-red text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            11:00 AM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Festival Opens</h3>
+                            <p class="text-gray-600">Final day - last chance to taste everything!</p>
+                        </div>
+                        <i data-lucide="door-open" class="w-6 h-6 text-church-red hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-red text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            1:00 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Choir Performance</h3>
+                            <p class="text-gray-600">Church choir sings traditional hymns and cultural songs</p>
+                        </div>
+                        <i data-lucide="mic" class="w-6 h-6 text-church-red hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-red text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            3:00 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Bake Sale Finale</h3>
+                            <p class="text-gray-600">Special discounts on pastries and desserts</p>
+                        </div>
+                        <i data-lucide="cake" class="w-6 h-6 text-church-red hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-red text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            5:00 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Closing Ceremony</h3>
+                            <p class="text-gray-600">Thank you and farewell celebration with surprise guests</p>
+                        </div>
+                        <i data-lucide="award" class="w-6 h-6 text-church-red hidden md:block"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-start md:items-center bg-stone-50 rounded-xl p-6 hover:shadow-md transition-shadow">
+                        <div class="bg-church-red text-white px-4 py-2 rounded-lg font-bold min-w-[120px] text-center mb-3 md:mb-0 md:mr-6">
+                            6:00 PM
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-bold text-lg text-gray-900">Festival Closes</h3>
+                            <p class="text-gray-600">Thank you for joining us! See you next year!</p>
+                        </div>
+                        <i data-lucide="heart" class="w-6 h-6 text-church-red hidden md:block"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-church-blue text-white pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <img src="https://dl.dropboxusercontent.com/scl/fi/1wsxg5q7q73klrr7570zy/Food-Festival-Logo-original.PNG?rlkey=uuy8ssqkzh49ejot9p8tbekyx" 
+                         alt="Logo" 
+                         class="h-10 w-auto bg-white rounded-lg p-1"
+                         onerror="this.style.display='none'">
+                    <div>
+                        <h3 class="font-serif text-lg font-bold">St. Anthony the Great</h3>
+                        <p class="text-blue-200 text-xs">Orthodox Church</p>
+                    </div>
+                </div>
+                <div class="flex space-x-6 text-sm">
+                    <a href="index.html" class="text-blue-200 hover:text-white">Home</a>
+                    <a href="cuisines.html" class="text-blue-200 hover:text-white">Cuisines</a>
+                    <a href="schedule.html" class="text-blue-200 hover:text-white">Schedule</a>
+                    <a href="location.html" class="text-blue-200 hover:text-white">Location</a>
+                    <a href="contact.html" class="text-blue-200 hover:text-white">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-6 pt-6 text-center text-blue-200 text-sm">
+                &copy; 2024 St. Anthony the Great Orthodox Church. International Food Festival.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
