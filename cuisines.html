@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuisines - St. Anthony the Great Orthodox Church International Food Festival</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'church-gold': '#C9A961',
+                        'church-blue': '#1E3A8A',
+                        'church-red': '#9B2C2C',
+                        'warm-cream': '#FEF3C7',
+                        'deep-amber': '#92400E',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-header {
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-stone-50">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center space-x-3">
+                    <img src="https://dl.dropboxusercontent.com/scl/fi/1wsxg5q7q73klrr7570zy/Food-Festival-Logo-original.PNG?rlkey=uuy8ssqkzh49ejot9p8tbekyx" 
+                         alt="Food Festival Logo" 
+                         class="h-16 w-auto object-contain"
+                         onerror="this.style.display='none'">
+                </a>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Home</a>
+                    <a href="cuisines.html" class="text-church-gold font-semibold border-b-2 border-church-gold">Cuisines</a>
+                    <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>
+                    <a href="location.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Location</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Contact</a>
+                    <a href="https://www.eventbrite.com/e/qigong-flow-for-the-2026-year-of-the-fire-horse-tickets-1981556014381?aff=ebdssbdestsearch" 
+                       target="_blank" 
+                       class="bg-church-gold text-white px-6 py-2 rounded-full font-medium hover:bg-yellow-700 transition-all shadow-md">
+                        Tickets
+                    </a>
+                </div>
+
+                <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
+                    <i data-lucide="menu" class="w-6 h-6 text-church-blue"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 pt-2 pb-4 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Home</a>
+                <a href="cuisines.html" class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">Cuisines</a>
+                <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a>
+                <a href="location.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Location</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Contact</a>
+                <a href="https://www.eventbrite.com/e/qigong-flow-for-the-2026-year-of-the-fire-horse-tickets-1981556014381?aff=ebdssbdestsearch" 
+                   target="_blank"
+                   class="block px-3 py-2 text-church-gold font-semibold">Tickets</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-32 pb-12 gradient-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">International Cuisines</h1>
+            <p class="text-white/90 text-lg">Flavors from around the world, prepared with love</p>
+        </div>
+    </section>
+
+    <!-- Cuisines Grid -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Greek -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <span class="text-6xl">🇬🇷</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Greek</h3>
+                        <p class="text-gray-600 text-sm mb-4">Authentic Mediterranean flavors</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Gyros & Souvlaki</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Spanakopita</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Baklava</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Greek Salad</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Lebanese -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
+                        <span class="text-6xl">🇱🇧</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Lebanese</h3>
+                        <p class="text-gray-600 text-sm mb-4">Middle Eastern delights</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Falafel</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Hummus & Tabouli</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Shawarma</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Kibbeh</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Russian -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
+                        <span class="text-6xl">🇷🇺</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Russian</h3>
+                        <p class="text-gray-600 text-sm mb-4">Eastern European classics</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Beef Stroganoff</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Pelmeni (Dumplings)</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Blini with Caviar</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Borscht</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- American -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-red-500 flex items-center justify-center">
+                        <span class="text-6xl">🇺🇸</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">American</h3>
+                        <p class="text-gray-600 text-sm mb-4">Classic BBQ & comfort food</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> BBQ Ribs</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Burgers & Fries</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Mac & Cheese</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Apple Pie</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Italian -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-red-500 flex items-center justify-center">
+                        <span class="text-6xl">🇮🇹</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Italian</h3>
+                        <p class="text-gray-600 text-sm mb-4">Taste of Italy</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Pasta Primavera</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Chicken Parmigiana</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Tiramisu</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Cannoli</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Ethiopian -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-yellow-500 flex items-center justify-center">
+                        <span class="text-6xl">🇪🇹</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Ethiopian</h3>
+                        <p class="text-gray-600 text-sm mb-4">African spice journey</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Doro Wat</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Injera Bread</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Vegetable Tibs</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Ethiopian Coffee</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Mexican -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-red-600 flex items-center justify-center">
+                        <span class="text-6xl">🇲🇽</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Mexican</h3>
+                        <p class="text-gray-600 text-sm mb-4">Vibrant fiesta flavors</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Tacos Al Pastor</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Enchiladas</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Guacamole & Chips</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Churros</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Desserts -->
+                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center">
+                        <span class="text-6xl">🍰</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Desserts</h3>
+                        <p class="text-gray-600 text-sm mb-4">Sweet treats worldwide</p>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> International Pastries</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Fresh Baklava</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Greek Cookies</li>
+                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Coffee & Tea</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-church-blue text-white pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-3 mb-4 md:mb-0">
+                    <img src="https://dl.dropboxusercontent.com/scl/fi/1wsxg5q7q73klrr7570zy/Food-Festival-Logo-original.PNG?rlkey=uuy8ssqkzh49ejot9p8tbekyx" 
+                         alt="Logo" 
+                         class="h-10 w-auto bg-white rounded-lg p-1"
+                         onerror="this.style.display='none'">
+                    <div>
+                        <h3 class="font-serif text-lg font-bold">St. Anthony the Great</h3>
+                        <p class="text-blue-200 text-xs">Orthodox Church</p>
+                    </div>
+                </div>
+                <div class="flex space-x-6 text-sm">
+                    <a href="index.html" class="text-blue-200 hover:text-white">Home</a>
+                    <a href="cuisines.html" class="text-blue-200 hover:text-white">Cuisines</a>
+                    <a href="schedule.html" class="text-blue-200 hover:text-white">Schedule</a>
+                    <a href="location.html" class="text-blue-200 hover:text-white">Location</a>
+                    <a href="contact.html" class="text-blue-200 hover:text-white">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-white/20 mt-6 pt-6 text-center text-blue-200 text-sm">
+                &copy; 2024 St. Anthony the Great Orthodox Church. International Food Festival.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
