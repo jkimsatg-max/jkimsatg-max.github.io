@@ -132,60 +132,65 @@
 <div class="flex flex-wrap justify-center gap-4 mt-8 mb-12 animate-fade-in-up" style="animation-delay: 0.4s">
    <div class="flex flex-col items-center gap-4">
 
-  <!-- Dates + Times Wrapper -->
-<div class="flex flex-col items-center justify-center mt-8 mb-10 animate-fade-in-up" style="animation-delay: 0.4s">
+<!-- Dates + Times + Buttons Wrapper -->
+<div class="flex flex-col items-center mt-8 mb-10 animate-fade-in-up" style="animation-delay: 0.4s">
 
-    <!-- Two Date Columns -->
-    <div class="flex flex-col md:flex-row items-center justify-center gap-10">
+    <!-- Shared Width Container -->
+    <div class="w-full max-w-4xl flex flex-col items-center">
 
-        <!-- October 9 -->
-        <div class="flex flex-col items-center gap-3 text-center">
-            <div class="flex items-center bg-white/20 backdrop-blur-md rounded-full px-6 py-3 text-white">
-                <i data-lucide="calendar" class="w-5 h-5 mr-2"></i>
-                <span class="font-semibold text-lg">October 9, 2026</span>
+        <!-- Two Date Columns -->
+        <div class="flex flex-col md:flex-row items-center justify-center gap-10">
+
+            <!-- October 9 -->
+            <div class="flex flex-col items-center gap-3 text-center">
+                <div class="flex items-center bg-white/20 backdrop-blur-md rounded-full px-6 py-3 text-white">
+                    <i data-lucide="calendar" class="w-5 h-5 mr-2"></i>
+                    <span class="font-semibold text-lg">October 9, 2026</span>
+                </div>
+
+                <div class="flex items-center bg-white/20 backdrop-blur-md rounded-full px-6 py-3 text-white">
+                    <i data-lucide="clock" class="w-5 h-5 mr-2"></i>
+                    <span class="font-medium">4:00 PM - 10:00 PM</span>
+                </div>
             </div>
 
-            <div class="flex items-center bg-white/20 backdrop-blur-md rounded-full px-6 py-3 text-white">
-                <i data-lucide="clock" class="w-5 h-5 mr-2"></i>
-                <span class="font-medium">4:00 PM - 10:00 PM</span>
+            <!-- October 10 -->
+            <div class="flex flex-col items-center gap-3 text-center">
+                <div class="flex items-center bg-white/20 backdrop-blur-md rounded-full px-6 py-3 text-white">
+                    <i data-lucide="calendar" class="w-5 h-5 mr-2"></i>
+                    <span class="font-semibold text-lg">October 10, 2026</span>
+                </div>
+
+                <div class="flex items-center bg-white/20 backdrop-blur-md rounded-full px-6 py-3 text-white">
+                    <i data-lucide="clock" class="w-5 h-5 mr-2"></i>
+                    <span class="font-medium">10:00 AM - 10:00 PM</span>
+                </div>
             </div>
+
         </div>
 
-        <!-- October 10 -->
-        <div class="flex flex-col items-center gap-3 text-center">
-            <div class="flex items-center bg-white/20 backdrop-blur-md rounded-full px-6 py-3 text-white">
-                <i data-lucide="calendar" class="w-5 h-5 mr-2"></i>
-                <span class="font-semibold text-lg">October 10, 2026</span>
-            </div>
+        <!-- Buttons (Now perfectly aligned) -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mt-10">
 
-            <div class="flex items-center bg-white/20 backdrop-blur-md rounded-full px-6 py-3 text-white">
-                <i data-lucide="clock" class="w-5 h-5 mr-2"></i>
-                <span class="font-medium">10:00 AM - 10:00 PM</span>
-            </div>
+            <a href="cuisines.html"
+               class="bg-white text-church-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-100 transition-all transform hover:scale-105 shadow-xl">
+                Explore the Flavors
+            </a>
+
+            <a href="https://www.eventbrite.com/e/qigong-flow-for-the-2026-year-of-the-fire-horse-tickets-1981556014381?aff=ebdssbdestsearch"
+               target="_blank"
+               class="bg-church-gold text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-600 transition-all transform hover:scale-105 shadow-xl">
+                Buy Tickets
+            </a>
+
         </div>
 
     </div>
-</div>
-
-<!-- Buttons -->
-<div class="flex flex-col sm:flex-row items-center sm:items-start justify-center sm:justify-start gap-6 max-w-3xl mx-auto animate-fade-in-up" style="animation-delay: 0.6s">
-
-    <a href="cuisines.html"
-       class="bg-white text-church-blue px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-100 transition-all transform hover:scale-105 shadow-xl">
-        Explore the Flavors
-    </a>
-
-    <a href="https://www.eventbrite.com/e/qigong-flow-for-the-2026-year-of-the-fire-horse-tickets-1981556014381?aff=ebdssbdestsearch"
-       target="_blank"
-       class="bg-church-gold text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-yellow-600 transition-all transform hover:scale-105 shadow-xl">
-        Buy Tickets
-    </a>
-
-</div>
-
-      
+</div>      
     </section>
 
+
+       
 <!-- About Section (Merged into Home) -->
 <section class="py-20 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
