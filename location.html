@@ -190,39 +190,94 @@
                 </div>
             </div>
 
-            <!-- Map Placeholder -->
-            <div class="bg-gray-200 rounded-2xl h-96 flex items-center justify-center relative overflow-hidden">
-                <img src="https://static.photos/cityscape/1200x630/1" alt="Map View" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
-                    <div class="text-center text-white">
-                        <i data-lucide="map" class="w-16 h-16 mx-auto mb-4"></i>
-                        <p class="text-xl font-semibold">Interactive Map</p>
-                        <p class="text-sm mt-2">Click to open in Google Maps</p>
+          <!-- Location Content -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid md:grid-cols-2 gap-12 mb-16">
+            
+            <!-- Address Card -->
+            <div class="bg-stone-50 rounded-2xl p-8 shadow-xl border border-orthodox-gold/20">
+                
+                <div class="flex items-center mb-6">
+                    <div class="bg-church-gold p-3 rounded-full mr-4">
+                        <i data-lucide="map-pin" class="w-6 h-6 text-white"></i>
                     </div>
+                    <h2 class="font-serif text-2xl font-bold text-gray-900">Visit Us</h2>
                 </div>
-            </div>
 
-            <!-- Additional Info -->
-            <div class="mt-12 grid md:grid-cols-3 gap-6">
-                <div class="text-center p-6 bg-stone-50 rounded-xl">
-                    <i data-lucide="clock" class="w-8 h-8 text-church-gold mx-auto mb-3"></i>
-                    <h3 class="font-bold text-gray-900 mb-2">Festival Days</h3>
-                    <p class="text-gray-600 text-sm">Fri-Sat<br></p>
-                </div>
-                <div class="text-center p-6 bg-stone-50 rounded-xl">
-                    <i data-lucide="volleyball" class="w-8 h-8 text-church-gold mx-auto mb-3"></i>
-                    <h3 class="font-bold text-gray-900 mb-2">Kid-Friendly</h3>
-                    <p class="text-gray-600 text-sm">Play area available<br>Face painting & games</p>
-                </div>
-                <div class="text-center p-6 bg-stone-50 rounded-xl">
-                    <i data-lucide="dog" class="w-8 h-8 text-church-gold mx-auto mb-3"></i>
-                    <h3 class="font-bold text-gray-900 mb-2">Pet Policy</h3>
-                    <p class="text-gray-600 text-sm">Service animals only<br>in food areas</p>
-                </div>
-            </div>
+                <!-- Clickable Address Block -->
+                <a id="primary-map-link"
+                   href="https://www.google.com/maps/search/?api=1&query=7202+Farm+to+Market+2920,+Spring,+TX+77379"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="block space-y-2 text-gray-700 hover:text-church-blue transition">
+                    
+                    <p class="text-lg font-semibold">
+                        St. Anthony the Great Orthodox Church
+                    </p>
+                    <p>7202 Farm to Market 2920</p>
+                    <p>Spring, TX 77379</p>
+                </a>
 
+                <!-- Action Buttons -->
+                <div class="flex flex-wrap gap-4 mt-6">
+
+                    <!-- Smart Get Directions -->
+                    <a id="directions-btn"
+                       href="https://www.google.com/maps/dir/?api=1&destination=7202+Farm+to+Market+2920,+Spring,+TX+77379"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center px-5 py-2.5 bg-church-blue text-white rounded-lg hover:bg-church-gold transition shadow-md">
+                        <i data-lucide="navigation" class="w-4 h-4 mr-2"></i>
+                        Get Directions
+                    </a>
+
+                    <!-- Secondary Map Option -->
+                    <a id="secondary-map-link"
+                       href="https://maps.apple.com/?address=7202+Farm+to+Market+2920,+Spring,+TX+77379"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="inline-flex items-center px-5 py-2.5 border border-church-blue text-church-blue rounded-lg hover:bg-church-blue hover:text-white transition">
+                        <i data-lucide="map" class="w-4 h-4 mr-2"></i>
+                        Open in Maps
+                    </a>
+
+                </div>
+
+                <!-- Embedded Map with Gold Accent Frame -->
+                <div class="mt-8 rounded-2xl overflow-hidden shadow-lg border-4 border-orthodox-gold/30">
+                    <iframe
+                        src="https://www.google.com/maps?q=7202+Farm+to+Market+2920,+Spring,+TX+77379&output=embed"
+                        width="100%"
+                        height="350"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<!-- Device Detection Script -->
+<script>
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if (isIOS) {
+        document.getElementById('primary-map-link').href =
+            "https://maps.apple.com/?address=7202+Farm+to+Market+2920,+Spring,+TX+77379";
+
+        document.getElementById('directions-btn').href =
+            "https://maps.apple.com/?daddr=7202+Farm+to+Market+2920,+Spring,+TX+77379";
+
+        document.getElementById('secondary-map-link').href =
+            "https://www.google.com/maps/search/?api=1&query=7202+Farm+to+Market+2920,+Spring,+TX+77379";
+    }
+</script>
 
 <!-- Footer -->
 <footer class="bg-church-blue text-white pt-16 pb-8">
