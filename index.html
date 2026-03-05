@@ -47,6 +47,66 @@
 
 <body class="font-sans text-gray-800 bg-stone-50">
 
+<!-- ================= NAVIGATION ================= -->
+
+<nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+
+            <!-- Logo + Title -->
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="https://dl.dropboxusercontent.com/scl/fi/1wsxg5q7q73klrr7570zy/Food-Festival-Logo-original.PNG?rlkey=uuy8ssqkzh49ejot9p8tbekyx"
+                     alt="Food Festival Logo"
+                     class="h-16 w-auto object-contain">
+
+                <div class="hidden md:block">
+                    <h1 class="font-serif text-lg font-bold text-blue-900 leading-tight">
+                        St. Anthony the Great
+                    </h1>
+                    <p class="text-xs text-gray-600">
+                        Orthodox Christian Church
+                    </p>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html" class="font-semibold text-yellow-600 border-b-2 border-yellow-600">Home</a>
+                <a href="cuisines.html" class="text-gray-700 hover:text-yellow-600 transition">Cuisines</a>
+                <a href="schedule.html" class="text-gray-700 hover:text-yellow-600 transition">Schedule</a>
+                <a href="location.html" class="text-gray-700 hover:text-yellow-600 transition">Location</a>
+                <a href="contact.html" class="text-gray-700 hover:text-yellow-600 transition">Contact</a>
+
+                <a href="https://www.eventbrite.com/"
+                   target="_blank"
+                   class="bg-yellow-600 text-white px-6 py-2 rounded-full font-medium hover:bg-yellow-700 transition shadow-md">
+                    Tickets
+                </a>
+            </div>
+
+            <!-- Mobile Button -->
+            <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" class="w-6 h-6 text-blue-900"></i>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+        <div class="px-4 pt-2 pb-4 space-y-1">
+            <a href="index.html" class="block px-3 py-2 font-semibold text-yellow-600">Home</a>
+            <a href="cuisines.html" class="block px-3 py-2 text-gray-700">Cuisines</a>
+            <a href="schedule.html" class="block px-3 py-2 text-gray-700">Schedule</a>
+            <a href="location.html" class="block px-3 py-2 text-gray-700">Location</a>
+            <a href="contact.html" class="block px-3 py-2 text-gray-700">Contact</a>
+        </div>
+    </div>
+</nav>
+    
+
+
+    
 <!-- ================= HERO SECTION ================= -->
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
