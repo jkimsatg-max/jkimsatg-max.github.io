@@ -10,36 +10,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    <style>
-        .gradient-hero {
-            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #D4AF37 100%);
-        }
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .food-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-    </style>
-</head>
-<body class="font-sans text-gray-800 bg-stone-50">
+<style>
+    .parallax-wrapper {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        z-index: 0;
+    }
 
+    .parallax-layer {
+        position: absolute;
+        inset: -100px; /* prevents white edges while scrolling */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        will-change: transform;
+    }
 
+    /* Individual layers */
+    .layer-1 { z-index: 1; opacity: 0.35; }
+    .layer-2 { z-index: 2; opacity: 0.30; }
+    .layer-3 { z-index: 3; opacity: 0.25; }
+    .layer-4 { z-index: 4; opacity: 0.20; }
 
-    
-    <style>
-        .gradient-hero {
-            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #D4AF37 100%);
-        }
-        .text-shadow {
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .food-pattern {
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-    </style>
-</head>
-<body class="font-sans text-gray-800 bg-stone-50">
+    /* Dark overlay for readability */
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+        z-index: 5;
+    }
+</style>"font-sans text-gray-800 bg-stone-50">
 
 
 
@@ -93,7 +94,55 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero pt-20">
+    <!-- Hero Section with Parallax -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+
+    <!-- Parallax Background Wrapper -->
+    <div class="parallax-wrapper">
+
+        <div class="parallax-layer layer-1"
+             style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');">
+        </div>
+
+        <div class="parallax-layer layer-2"
+             style="background-image: url('https://images.unsplash.com/photo-1529042410759-befb1204b468');">
+        </div>
+
+        <div class="parallax-layer layer-3"
+             style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c');">
+        </div>
+
+        <div class="parallax-layer layer-4"
+             style="background-image: url('https://images.unsplash.com/photo-1512058564366-c9e3e0460b94');">
+        </div>
+
+    </div>
+
+    <!-- Dark Overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Existing Hero Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+
+        <div class="mb-8">
+            <img src="https://dl.dropboxusercontent.com/scl/fi/1wsxg5q7q73klrr7570zy/Food-Festival-Logo-original.PNG?rlkey=uuy8ssqkzh49ejot9p8tbekyx"
+                 alt="Food Festival Logo"
+                 class="h-48 md:h-64 w-auto mx-auto object-contain drop-shadow-2xl rounded-full bg-white/10 backdrop-blur-sm p-4">
+        </div>
+
+        <h1 class="font-serif text-5xl md:text-7xl font-bold mb-4 text-shadow">
+            International<br>
+            <span class="text-yellow-300">Food Festival</span>
+        </h1>
+
+        <p class="text-xl md:text-2xl text-white/90 mb-8 font-light">
+            St. Anthony the Great Orthodox Christian Church
+        </p>
+
+        <!-- Keep your existing buttons + date layout below here unchanged -->
+
+    </div>
+</section>
         <div class="absolute inset-0 food-pattern opacity-30"></div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"></div>
         
