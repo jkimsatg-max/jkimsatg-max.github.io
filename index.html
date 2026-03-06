@@ -67,22 +67,20 @@
 }
 
 .hero-layer {
-    filter: blur(1px);
-mix-blend-mode: lighten;
     position: absolute;
     width: 110%;
     height: 110%;
     object-fit: cover;
-    opacity: 0.25;
+    opacity: 0.18;
     will-change: transform;
 }
 
-.layer1 { z-index: 1; }
-.layer2 { z-index: 2; }
-.layer3 { z-index: 3; }
-.layer4 { z-index: 4; }
-.layer5 { z-index: 5; }
-.layer6 { z-index: 6; }
+.layer1 { z-index:1; top:-5%; left:-5%; }
+.layer2 { z-index:2; top:-3%; left:4%; }
+.layer3 { z-index:3; top:0%; left:-2%; }
+.layer4 { z-index:4; top:3%; left:3%; }
+.layer5 { z-index:5; top:6%; left:-4%; }
+.layer6 { z-index:6; top:8%; left:2%; }
 
         
     </style>
@@ -140,7 +138,7 @@ mix-blend-mode: lighten;
 
     <!-- Hero Section -->
     
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero pt-20">
+   <section class="relative min-h-screen flex items-center justify-center gradient-hero pt-20">
         <div class="absolute inset-0 food-pattern opacity-30"></div>
         <div class="hero-parallax">
 
@@ -488,16 +486,15 @@ mix-blend-mode: lighten;
             }
         });
 
-        // Hero Parallax Background
+// Hero Parallax Background
 window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
 
     document.querySelectorAll(".hero-layer").forEach((layer, index) => {
-        const speed = (index + 1) * 0.05;
+        const speed = 0.15 + (index * 0.08);
         layer.style.transform = `translateY(${scrollY * speed}px)`;
     });
-});        
-    </script>
-
+});
+</script>
 </body>
 </html>
