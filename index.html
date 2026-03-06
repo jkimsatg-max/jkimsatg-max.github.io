@@ -52,6 +52,7 @@
     </script>
     
     <style>
+    
         .gradient-hero {
             background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #D4AF37 100%);
         }
@@ -61,6 +62,33 @@
         .food-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
+
+.hero-parallax {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hero-layer {
+    filter: blur(1px);
+mix-blend-mode: lighten;
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    object-fit: cover;
+    opacity: 0.25;
+    will-change: transform;
+}
+
+.layer1 { z-index: 1; }
+.layer2 { z-index: 2; }
+.layer3 { z-index: 3; }
+.layer4 { z-index: 4; }
+.layer5 { z-index: 5; }
+.layer6 { z-index: 6; }
+
+        
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-stone-50">
@@ -115,8 +143,19 @@
     </nav>
 
     <!-- Hero Section -->
+    
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden gradient-hero pt-20">
         <div class="absolute inset-0 food-pattern opacity-30"></div>
+        <div class="hero-parallax">
+
+<img src="metropolitan.jpg" class="hero-layer layer1">
+<img src="metropolitangroup.jpg" class="hero-layer layer2">
+<img src="cookingclass.webp" class="hero-layer layer3">
+<img src="kidssermon.webp" class="hero-layer layer4">
+<img src="metropolitanhall.jpg" class="hero-layer layer5">
+<img src="groupphoto.jpeg" class="hero-layer layer6">
+
+</div>
         <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"></div>
         
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -452,6 +491,16 @@
                 navbar.classList.remove('shadow-md');
             }
         });
+
+        // Hero Parallax Background
+window.addEventListener("scroll", () => {
+    const scrollY = window.scrollY;
+
+    document.querySelectorAll(".hero-layer").forEach((layer, index) => {
+        const speed = (index + 1) * 0.05;
+        layer.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+});        
     </script>
 
 </body>
