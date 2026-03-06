@@ -72,15 +72,16 @@
     height: 110%;
     object-fit: cover;
     opacity: 0.18;
+    transform: scale(1.15);
     will-change: transform;
 }
 
-.layer1 { z-index:1; top:-5%; left:-5%; }
-.layer2 { z-index:2; top:-3%; left:4%; }
-.layer3 { z-index:3; top:0%; left:-2%; }
-.layer4 { z-index:4; top:3%; left:3%; }
-.layer5 { z-index:5; top:6%; left:-4%; }
-.layer6 { z-index:6; top:8%; left:2%; }
+.layer1 { z-index:1; top:-10%; left:-10%; }
+.layer2 { z-index:2; top:-5%; left:5%; }
+.layer3 { z-index:3; top:0%; left:-3%; }
+.layer4 { z-index:4; top:5%; left:4%; }
+.layer5 { z-index:5; top:10%; left:-6%; }
+.layer6 { z-index:6; top:15%; left:3%; }
 
         
     </style>
@@ -138,7 +139,7 @@
 
     <!-- Hero Section -->
     
-   <section class="relative min-h-screen flex items-center justify-center gradient-hero pt-20">
+   <section class="relative min-h-[120vh] flex items-center justify-center gradient-hero pt-20 overflow-hidden">
         <div class="absolute inset-0 food-pattern opacity-30"></div>
         <div class="hero-parallax">
 
@@ -491,7 +492,7 @@ window.addEventListener("scroll", () => {
     const scrollY = window.scrollY;
 
     document.querySelectorAll(".hero-layer").forEach((layer, index) => {
-        const speed = 0.15 + (index * 0.08);
+        const speed = 0.05 + (index * 0.03);
         layer.style.transform = `translateY(${scrollY * speed}px)`;
     });
 });
