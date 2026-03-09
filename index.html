@@ -59,7 +59,7 @@
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4AF37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         }
 
-.hero-parallax {
+.hero-scroll  {
     position: absolute;
     inset: 0;
     overflow: hidden;
@@ -67,31 +67,40 @@
     pointer-events: none;
 }
 
-.hero-layer {
-     --offset: 0px;
+.hero-scroll-track {
     position: absolute;
-    width: 110%;
-    height: 110%;
-    object-fit: cover;
-    opacity: 0.18;
-    transform: translate3d(0, var(--offset), 0) scale(1.15);
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    animation: heroPicturesScroll 46s linear infinite;
     will-change: transform;
 }
         
-@media (prefers-reduced-motion: reduce) {
-    .hero-layer {
-        transform: scale(1.15);
+.hero-scroll-image {
+    width: 115%;
+    height: 40vh;
+    margin-left: -7.5%;
+    object-fit: cover;
+    opacity: 0.2;
+}
+
+@keyframes heroPicturesScroll {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(0, -50%, 0);
     }
 }
 
-        
-.layer1 { z-index:1; top:-10%; left:-10%; }
-.layer2 { z-index:2; top:-5%; left:5%; }
-.layer3 { z-index:3; top:0%; left:-3%; }
-.layer4 { z-index:4; top:5%; left:4%; }
-.layer5 { z-index:5; top:10%; left:-6%; }
-.layer6 { z-index:6; top:15%; left:3%; }
-
+@media (prefers-reduced-motion: reduce) {
+    .hero-scroll-track {
+        animation: none;
+    }
+}
         
     </style>
 </head>
@@ -150,17 +159,22 @@
     
      <section id="hero" class="relative min-h-[120vh] flex items-center justify-center gradient-hero pt-20 overflow-hidden">
         <div class="absolute inset-0 food-pattern opacity-30"></div>
-        <div class="hero-parallax">
-
-<img src="metropolitan.jpg" class="hero-layer layer1">
-<img src="metropolitangroup.jpg" class="hero-layer layer2">
-<img src="cookingclass.webp" class="hero-layer layer3">
-<img src="kidssermon.webp" class="hero-layer layer4">
-<img src="metropolitanhall.jpg" class="hero-layer layer5">
-<img src="groupphoto.jpeg" class="hero-layer layer6">
-
-</div>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"></div>
+  <div class="hero-scroll" aria-hidden="true">
+            <div class="hero-scroll-track">
+                <img src="metropolitan.jpg" class="hero-scroll-image" alt="">
+                <img src="metropolitangroup.jpg" class="hero-scroll-image" alt="">
+                <img src="cookingclass.webp" class="hero-scroll-image" alt="">
+                <img src="kidssermon.webp" class="hero-scroll-image" alt="">
+                <img src="metropolitanhall.jpg" class="hero-scroll-image" alt="">
+                <img src="groupphoto.jpeg" class="hero-scroll-image" alt="">
+                <img src="metropolitan.jpg" class="hero-scroll-image" alt="">
+                <img src="metropolitangroup.jpg" class="hero-scroll-image" alt="">
+                <img src="cookingclass.webp" class="hero-scroll-image" alt="">
+                <img src="kidssermon.webp" class="hero-scroll-image" alt="">
+                <img src="metropolitanhall.jpg" class="hero-scroll-image" alt="">
+                <img src="groupphoto.jpeg" class="hero-scroll-image" alt="">
+            </div>
+        </div>        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"></div>
         
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="mb-8">
@@ -495,42 +509,6 @@
                 navbar.classList.remove('shadow-md');
             }
         });
-
-// Hero Parallax Background
-(function setupHeroParallax() {
-    const hero = document.getElementById('hero');
-    const layers = Array.from(document.querySelectorAll('.hero-layer'));
-
-    if (!hero || layers.length === 0 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        return;
-    }
-
-    let ticking = false;
-
-    const updateParallax = () => {
-        const rect = hero.getBoundingClientRect();
-        const heroProgress = Math.max(Math.min((window.innerHeight - rect.top) / (window.innerHeight + rect.height), 1), 0);
-
-        layers.forEach((layer, index) => {
-            const speed = 20 + (index * 12);
-            const offset = (heroProgress - 0.5) * speed;
-            layer.style.setProperty('--offset', `${offset.toFixed(2)}px`);
-        });
-
-        ticking = false;
-    };
-
-    const requestTick = () => {
-        if (!ticking) {
-            window.requestAnimationFrame(updateParallax);
-            ticking = true;
-        }
-    };
-
-    window.addEventListener('scroll', requestTick, { passive: true });
-    window.addEventListener('resize', requestTick);
-    requestTick();
-})();
 </script>
 </body>
 </html>
