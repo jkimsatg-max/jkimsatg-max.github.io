@@ -72,7 +72,7 @@
     inset: 0;
     height: 100%;
     display: flex;
-    transition: transform 0.6s ease-in-out;
+      transition: transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
 }
         
@@ -162,7 +162,7 @@
                 <img src="groupphoto.jpeg" class="hero-scroll-image" alt="">
                 <img src="metropolitan.jpg" class="hero-scroll-image" alt="">
             </div>
-        </div>      
+        </div> 
          <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"></div>
         
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -496,6 +496,8 @@
                 navbar.classList.remove('shadow-md');
             }
         });   
+
+// Hero Parallax Background                    
 (function setupHeroImageSlider() {
     const track = document.getElementById('hero-scroll-track');
     if (!track) return;
@@ -507,23 +509,40 @@
         track.style.transform = 'translate3d(0, 0, 0)';
         return;
     }
-   let index = 0;
-    const lingerMs = 1000;
-    const moveMs = 600;
+    let index = 0;
+    let isTransitioning = false;
+    const lingerMs = 1200;
+    const moveMs = 850;
 
-    window.setInterval(() => {
-        index += 1;
-        track.style.transitionDuration = `${moveMs}ms`;
-        track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+    const queueNextSlide = () => {
+        window.setTimeout(() => {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            index += 1;
+            track.style.transitionDuration = `${moveMs}ms`;
+            track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+        }, lingerMs);
+    };
 
+    
+    track.addEventListener('transitionend', () => {
         if (index === uniqueCount) {
-            window.setTimeout(() => {
-                track.style.transitionDuration = '0ms';
-                track.style.transform = 'translate3d(0, 0, 0)';
-                index = 0;
-            }, moveMs);
+            track.style.transitionDuration = '0ms';
+            track.style.transform = 'translate3d(0, 0, 0)';
+            index = 0;
+            track.getBoundingClientRect();
+            window.requestAnimationFrame(() => {
+                track.style.transitionDuration = `${moveMs}ms`;
+            });
         }
-    }, lingerMs + moveMs);
+
+        
+
+      isTransitioning = false;
+        queueNextSlide();
+    });
+
+    queueNextSlide();
 })();
 </script>
 </body>
