@@ -35,6 +35,10 @@
             background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
         }
 
+        .world-ring-wrap {
+            background: white;
+            padding: 3.5rem 1rem 4rem;
+        }
 
         .world-ring {
             position: relative;
@@ -42,54 +46,48 @@
             aspect-ratio: 1;
             margin: 0 auto;
             border-radius: 9999px;
-            border: 2px solid rgba(255, 255, 255, 0.35);
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 62%, transparent 100%);
-            overflow: hidden;
+            border: 2px solid #dbeafe;
+            background: white;
+            box-shadow: 0 18px 44px rgba(30, 58, 138, 0.12);
         }
 
         .orbit {
             position: absolute;
             inset: 0;
             border-radius: 9999px;
-            animation: spin linear infinite;
+            animation: spin 24s linear infinite;
         }
-
-        .orbit-1 { animation-duration: 18s; }
-        .orbit-2 { animation-duration: 24s; animation-direction: reverse; }
-        .orbit-3 { animation-duration: 30s; }
 
         .flag {
             position: absolute;
             left: 50%;
             top: 50%;
             transform: rotate(var(--angle)) translateY(calc(var(--radius) * -1)) rotate(calc(var(--angle) * -1));
-            font-size: clamp(1.3rem, 2.1vw, 2rem);
-            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.22));
+            font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+            filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.18));
             user-select: none;
         }
 
         .ring-message {
             position: absolute;
-            inset: 20%;
+            inset: 24%;
             border-radius: 9999px;
-            background: rgba(255, 255, 255, 0.94);
+            background: #eff6ff;
             color: #1E3A8A;
             display: grid;
             place-items: center;
             text-align: center;
-            padding: 1.25rem;
+            padding: 1.5rem;
             font-family: 'Playfair Display', serif;
-            font-size: clamp(1rem, 2vw, 1.55rem);
+            font-size: clamp(1rem, 2vw, 1.6rem);
             line-height: 1.35;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 0 0 2px #bfdbfe;
         }
 
         @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
-
-        
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-stone-50">
@@ -181,150 +179,27 @@
         </div>
     </section>
 
-    <!-- Cuisines Grid -->
-    <section class="py-16 bg-white">
+   <!-- World Flag Ring -->
+    <section class="world-ring-wrap">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
- <!-- American -->
-                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-red-500 flex items-center justify-center">
-                        <span class="text-6xl">🇺🇸</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">American</h3>
-                        <p class="text-gray-600 text-sm mb-4">Classic BBQ & comfort food</p>
-                        <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> BBQ Ribs</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Burgers & Fries</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Mac & Cheese</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Apple Pie</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Asian -->
-                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-48 bg-gradient-to-br from-church-red via-church-gold to-church-blue flex items-center justify-center">
-                    <span class="text-6xl">🍜</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Asian</h3>
-                        <p class="text-gray-600 text-sm mb-4">Pan-Asian street food favorites</p>
-                        <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Lumpia</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Halo Halo</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Takoyaki</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Dalgona</li>
-                        </ul>
-                    </div>
-                </div>
-
- 
-                <!-- Ethiopian -->
-                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-48 bg-gradient-to-br from-green-500 to-yellow-500 flex items-center justify-center">
-                        <span class="text-6xl">🇪🇹</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Ethiopian</h3>
-                        <p class="text-gray-600 text-sm mb-4">African spice journey</p>
-                        <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Doro Wat</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Injera Bread</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Vegetable Tibs</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Ethiopian Coffee</li>
-                        </ul>
-                    </div>
-                </div>
-
-                                
-                <!-- Greek -->
-                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                        <span class="text-6xl">🇬🇷</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Greek</h3>
-                        <p class="text-gray-600 text-sm mb-4">Authentic Greek flavors</p>
-                        <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Gyros & Souvlaki</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Spanakopita</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Baklava</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Greek Salad</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Mediterranean -->
-                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center">
-                        <span class="text-6xl">🇱🇧</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Mediterranean</h3>
-                        <p class="text-gray-600 text-sm mb-4">Middle Eastern delights</p>
-                        <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Falafel</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Hummus & Tabouli</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Shawarma</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Kibbeh</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Mexican -->
-                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-48 bg-gradient-to-br from-green-400 to-red-600 flex items-center justify-center">
-                        <span class="text-6xl">🇲🇽</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Mexican</h3>
-                        <p class="text-gray-600 text-sm mb-4">Vibrant fiesta flavors</p>
-                        <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Tacos Al Pastor</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Enchiladas</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Guacamole & Chips</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Churros</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Russian -->
-                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-48 bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center">
-                        <span class="text-6xl">🇷🇺</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Russian</h3>
-                        <p class="text-gray-600 text-sm mb-4">Eastern European classics</p>
-                        <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Beef Stroganoff</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Pelmeni (Dumplings)</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Blini with Caviar</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Borscht</li>
-                        </ul>
-                    </div>
-                </div>
-
-              
-
-                <!-- Desserts -->
-                <div class="bg-stone-50 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-2">
-                    <div class="h-48 bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center">
-                        <span class="text-6xl">🍰</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-serif text-2xl font-bold text-gray-900 mb-2">Desserts</h3>
-                        <p class="text-gray-600 text-sm mb-4">Sweet treats worldwide</p>
-                        <ul class="space-y-2 text-sm text-gray-700">
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> International Pastries</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Fresh Baklava</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Greek Cookies</li>
-                            <li class="flex items-center"><i data-lucide="check" class="w-4 h-4 text-green-600 mr-2"></i> Coffee & Tea</li>
-                        </ul>
-                    </div>
-                </div>
+                   <div class="world-ring" aria-label="Moving world flags and festival message">
+                <div class="orbit">
+                    <span class="flag" style="--angle: 0deg; --radius: clamp(116px, 43vw, 238px);">🇺🇸</span>
+                    <span class="flag" style="--angle: 30deg; --radius: clamp(116px, 43vw, 238px);">🇲🇽</span>
+                    <span class="flag" style="--angle: 60deg; --radius: clamp(116px, 43vw, 238px);">🇫🇷</span>
+                    <span class="flag" style="--angle: 90deg; --radius: clamp(116px, 43vw, 238px);">🇮🇳</span>
+                    <span class="flag" style="--angle: 120deg; --radius: clamp(116px, 43vw, 238px);">🇪🇹</span>
+                    <span class="flag" style="--angle: 150deg; --radius: clamp(116px, 43vw, 238px);">🇯🇵</span>
+                    <span class="flag" style="--angle: 180deg; --radius: clamp(116px, 43vw, 238px);">🇬🇷</span>
+                    <span class="flag" style="--angle: 210deg; --radius: clamp(116px, 43vw, 238px);">🇱🇧</span>
+                    <span class="flag" style="--angle: 240deg; --radius: clamp(116px, 43vw, 238px);">🇧🇷</span>
+                    <span class="flag" style="--angle: 270deg; --radius: clamp(116px, 43vw, 238px);">🇹🇭</span>
+                    <span class="flag" style="--angle: 300deg; --radius: clamp(116px, 43vw, 238px);">🇷🇺</span>
+                    <span class="flag" style="--angle: 330deg; --radius: clamp(116px, 43vw, 238px);">🇪🇸</span>
+                </div>  
+    <div class="ring-message">
+                    Food and desserts from all over the world. Come taste and see!
+               
 
             </div>
         </div>
