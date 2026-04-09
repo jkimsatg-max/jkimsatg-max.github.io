@@ -34,6 +34,62 @@
         .gradient-header {
             background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
         }
+
+
+        .world-ring {
+            position: relative;
+            width: min(88vw, 560px);
+            aspect-ratio: 1;
+            margin: 0 auto;
+            border-radius: 9999px;
+            border: 2px solid rgba(255, 255, 255, 0.35);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0.04) 62%, transparent 100%);
+            overflow: hidden;
+        }
+
+        .orbit {
+            position: absolute;
+            inset: 0;
+            border-radius: 9999px;
+            animation: spin linear infinite;
+        }
+
+        .orbit-1 { animation-duration: 18s; }
+        .orbit-2 { animation-duration: 24s; animation-direction: reverse; }
+        .orbit-3 { animation-duration: 30s; }
+
+        .flag {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: rotate(var(--angle)) translateY(calc(var(--radius) * -1)) rotate(calc(var(--angle) * -1));
+            font-size: clamp(1.3rem, 2.1vw, 2rem);
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.22));
+            user-select: none;
+        }
+
+        .ring-message {
+            position: absolute;
+            inset: 20%;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.94);
+            color: #1E3A8A;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 1.25rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1rem, 2vw, 1.55rem);
+            line-height: 1.35;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-stone-50">
@@ -88,6 +144,40 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="font-serif text-4xl md:text-5xl font-bold text-white mb-4">International Cuisines</h1>
             <p class="text-white/90 text-lg">Flavors from around the world, prepared with love</p>
+        </div>
+    </section>
+
+     <!-- World Flag Ring -->
+    <section class="py-12 gradient-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="world-ring" aria-label="Moving world flags and festival message">
+                <div class="orbit orbit-1">
+                    <span class="flag" style="--angle: 0deg; --radius: clamp(96px, 43vw, 245px);">🇺🇸</span>
+                    <span class="flag" style="--angle: 60deg; --radius: clamp(96px, 43vw, 245px);">🇲🇽</span>
+                    <span class="flag" style="--angle: 120deg; --radius: clamp(96px, 43vw, 245px);">🇪🇹</span>
+                    <span class="flag" style="--angle: 180deg; --radius: clamp(96px, 43vw, 245px);">🇬🇷</span>
+                    <span class="flag" style="--angle: 240deg; --radius: clamp(96px, 43vw, 245px);">🇱🇧</span>
+                    <span class="flag" style="--angle: 300deg; --radius: clamp(96px, 43vw, 245px);">🇯🇵</span>
+                </div>
+                <div class="orbit orbit-2">
+                    <span class="flag" style="--angle: 30deg; --radius: clamp(78px, 35vw, 200px);">🇫🇷</span>
+                    <span class="flag" style="--angle: 90deg; --radius: clamp(78px, 35vw, 200px);">🇮🇳</span>
+                    <span class="flag" style="--angle: 150deg; --radius: clamp(78px, 35vw, 200px);">🇰🇷</span>
+                    <span class="flag" style="--angle: 210deg; --radius: clamp(78px, 35vw, 200px);">🇮🇹</span>
+                    <span class="flag" style="--angle: 270deg; --radius: clamp(78px, 35vw, 200px);">🇧🇷</span>
+                    <span class="flag" style="--angle: 330deg; --radius: clamp(78px, 35vw, 200px);">🇹🇭</span>
+                </div>
+                <div class="orbit orbit-3">
+                    <span class="flag" style="--angle: 15deg; --radius: clamp(62px, 27vw, 155px);">🇪🇸</span>
+                    <span class="flag" style="--angle: 87deg; --radius: clamp(62px, 27vw, 155px);">🇨🇳</span>
+                    <span class="flag" style="--angle: 159deg; --radius: clamp(62px, 27vw, 155px);">🇵🇭</span>
+                    <span class="flag" style="--angle: 231deg; --radius: clamp(62px, 27vw, 155px);">🇷🇺</span>
+                    <span class="flag" style="--angle: 303deg; --radius: clamp(62px, 27vw, 155px);">🇪🇬</span>
+                </div>
+                <div class="ring-message">
+                    Food and desserts from all over the world. Come taste and see!
+                </div>
+            </div>
         </div>
     </section>
 
