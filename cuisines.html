@@ -64,11 +64,16 @@
             transform: rotate(var(--angle)) translateY(calc(var(--radius) * -1)) rotate(calc(var(--angle) * -1));
             width: clamp(30px, 4.3vw, 42px);
             aspect-ratio: 4 / 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             border-radius: 4px;
             border: 1px solid #e5e7eb;
+            background: #ffffff;
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
-            object-fit: cover;
             user-select: none;
+            font-size: clamp(18px, 2.2vw, 26px);
+            line-height: 1;
         }
 
         .ring-message {
@@ -165,18 +170,18 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                    <div class="world-ring" aria-label="Moving world flags and festival message">
                 <div class="orbit">
-                    <span class="flag" style="--angle: 0deg; --radius: clamp(116px, 43vw, 238px);">US</span>
-                    <span class="flag" style="--angle: 30deg; --radius: clamp(116px, 43vw, 238px);">MX</span>
-                    <span class="flag" style="--angle: 60deg; --radius: clamp(116px, 43vw, 238px);">FR</span>
-                    <span class="flag" style="--angle: 90deg; --radius: clamp(116px, 43vw, 238px);">IN</span>
-                    <span class="flag" style="--angle: 120deg; --radius: clamp(116px, 43vw, 238px);">ET</span>
-                    <span class="flag" style="--angle: 150deg; --radius: clamp(116px, 43vw, 238px);">JP</span>
-                    <span class="flag" style="--angle: 180deg; --radius: clamp(116px, 43vw, 238px);">GR</span>
-                    <span class="flag" style="--angle: 210deg; --radius: clamp(116px, 43vw, 238px);">LB</span>
-                    <span class="flag" style="--angle: 240deg; --radius: clamp(116px, 43vw, 238px);">BR</span>
-                    <span class="flag" style="--angle: 270deg; --radius: clamp(116px, 43vw, 238px);">TH</span>
-                    <span class="flag" style="--angle: 300deg; --radius: clamp(116px, 43vw, 238px);">RS</span>
-                    <span class="flag" style="--angle: 330deg; --radius: clamp(116px, 43vw, 238px);">ES</span>
+                    <span class="flag" style="--angle: 0deg; --radius: clamp(116px, 43vw, 238px);" aria-label="United States flag">🇺🇸</span>
+                    <span class="flag" style="--angle: 30deg; --radius: clamp(116px, 43vw, 238px);" aria-label="Mexico flag">🇲🇽</span>
+                    <span class="flag" style="--angle: 60deg; --radius: clamp(116px, 43vw, 238px);" aria-label="France flag">🇫🇷</span>
+                    <span class="flag" style="--angle: 90deg; --radius: clamp(116px, 43vw, 238px);" aria-label="India flag">🇮🇳</span>
+                    <span class="flag" style="--angle: 120deg; --radius: clamp(116px, 43vw, 238px);" aria-label="Ethiopia flag">🇪🇹</span>
+                    <span class="flag" style="--angle: 150deg; --radius: clamp(116px, 43vw, 238px);" aria-label="Japan flag">🇯🇵</span>
+                    <span class="flag" style="--angle: 180deg; --radius: clamp(116px, 43vw, 238px);" aria-label="Greece flag">🇬🇷</span>
+                    <span class="flag" style="--angle: 210deg; --radius: clamp(116px, 43vw, 238px);" aria-label="Lebanon flag">🇱🇧</span>
+                    <span class="flag" style="--angle: 240deg; --radius: clamp(116px, 43vw, 238px);" aria-label="Brazil flag">🇧🇷</span>
+                    <span class="flag" style="--angle: 270deg; --radius: clamp(116px, 43vw, 238px);" aria-label="Thailand flag">🇹🇭</span>
+                    <span class="flag" style="--angle: 300deg; --radius: clamp(116px, 43vw, 238px);" aria-label="Serbia flag">🇷🇸</span>
+                    <span class="flag" style="--angle: 330deg; --radius: clamp(116px, 43vw, 238px);" aria-label="Spain flag">🇪🇸</span>
                 </div>  
     <div class="ring-message">
                     Food and desserts from all over the world. Come taste and see!
