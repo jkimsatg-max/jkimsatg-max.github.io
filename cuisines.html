@@ -39,71 +39,84 @@
             padding: 3.5rem 1rem 4rem;
         }
 
-        .world-ring {
+
+        .festival-globe-wrap {
+            --ring-size: min(90vw, 620px);
             position: relative;
-            width: min(88vw, 560px);
+            width: var(--ring-size);
             aspect-ratio: 1;
             margin: 0 auto;
+            display: grid;
+            place-items: center;
+        }
+
+            .festival-ring {
+            width: 100%;
+            height: 100%;
             border-radius: 9999px;
-            border: 2px solid #dbeafe;
-            background: white;
+            border: 8px solid #d1d5db;
+            position: relative;
+            animation: festivalSpin 28s linear infinite;
             box-shadow: 0 18px 44px rgba(30, 58, 138, 0.12);
+            background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
         }
-
-        .orbit {
+         
+         .festival-ring-center {
             position: absolute;
-            inset: 0;
+            inset: 22%;
             border-radius: 9999px;
-            animation: spin 24s linear infinite;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            padding: 1rem;
+            font-family: 'Playfair Display', serif;
+            color: #1E3A8A;
+            background: rgba(255,255,255,0.92);
+            box-shadow: inset 0 0 0 2px rgba(30, 58, 138, 0.2), 0 8px 16px rgba(0,0,0,0.1);
+            font-size: clamp(0.9rem, 1.9vw, 1.25rem);
+            line-height: 1.35;
+            z-index: 1;
         }
-
-        .flag {
+         
+        .festival-flag {
             position: absolute;
             left: 50%;
             top: 50%;
-            transform: rotate(var(--angle)) translateY(calc(var(--radius) * -1)) rotate(calc(var(--angle) * -1));
-            width: clamp(42px, 5.5vw, 58px);
+            width: clamp(48px, 6vw, 62px);
             aspect-ratio: 4 / 3;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            transform: translate(-50%, -50%);
+            background: #fff; 
             border-radius: 4px;
-            border: 1px solid #e5e7eb;
-            background: #ffffff;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
-            user-select: none;
-            font-size: clamp(24px, 3.2vw, 36px);
-            line-height: 1;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.16);
+            animation: counterSpin 28s linear infinite;
+            z-index: 2;
+            overflow: hidden;
+            display: block;
         }
 
-        .ring-message {
-            position: absolute;
-            inset: 24%;
-            border-radius: 9999px;
-            background: #eff6ff;
-            color: #1E3A8A;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-            text-align: center;
-            padding: 1.5rem;
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(1rem, 2vw, 1.6rem);
-            line-height: 1.35;
-            box-shadow: inset 0 0 0 2px #bfdbfe;
+        .festival-flag img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
-        .ring-icon {
-            width: clamp(44px, 8vw, 72px);
-            height: clamp(44px, 8vw, 72px);
-            color: #1d4ed8;
-        }
-
-        @keyframes spin {
+         @keyframes festivalSpin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
+        }
+         
+        @keyframes counterSpin {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(-360deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .festival-ring,
+            .festival-flag {
+                animation: none;
+            }
         }
     </style>
    
@@ -167,26 +180,10 @@
 
    <!-- World Flag Ring -->
     <section class="world-ring-wrap">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                   <div class="world-ring" aria-label="Moving world flags and festival message">
-                <div class="orbit">
-                   <img class="flag" style="--angle: 0deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/us.png" alt="United States flag" loading="lazy">
-                    <img class="flag" style="--angle: 30deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/mx.png" alt="Mexico flag" loading="lazy">
-                    <img class="flag" style="--angle: 60deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/fr.png" alt="France flag" loading="lazy">
-                    <img class="flag" style="--angle: 90deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/in.png" alt="India flag" loading="lazy">
-                    <img class="flag" style="--angle: 120deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/et.png" alt="Ethiopia flag" loading="lazy">
-                    <img class="flag" style="--angle: 150deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/jp.png" alt="Japan flag" loading="lazy">
-                    <img class="flag" style="--angle: 180deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/gr.png" alt="Greece flag" loading="lazy">
-                    <img class="flag" style="--angle: 210deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/lb.png" alt="Lebanon flag" loading="lazy">
-                    <img class="flag" style="--angle: 240deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/br.png" alt="Brazil flag" loading="lazy">
-                    <img class="flag" style="--angle: 270deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/th.png" alt="Thailand flag" loading="lazy">
-                    <img class="flag" style="--angle: 300deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/rs.png" alt="Serbia flag" loading="lazy">
-                    <img class="flag" style="--angle: 330deg; --radius: clamp(138px, 45vw, 250px);" src="https://flagcdn.com/w80/es.png" alt="Spain flag" loading="lazy">
-                </div>  
-    <div class="ring-message">
-                    Food and desserts from all over the world. Come taste and see!
-               
-
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">               
+            <div class="festival-globe-wrap" aria-label="Moving world flags around festival message">
+                <div class="festival-ring" id="cuisines-flag-ring"></div>
+                <div class="festival-ring-center">Food and desserts from all over the world. Come taste and see!</div>
             </div>
         </div>
     </section>
@@ -276,7 +273,7 @@
 
         </div>
 
-        <!-- Bottom Bar -->
+       <!-- Bottom Bar -->
         <div class="mt-12 pt-6 border-t border-stone-600 text-center text-sm">
             <p>&copy; 2026 St. Anthony the Great Orthodox Christian Church. All rights reserved.</p>
         </div>
@@ -301,6 +298,60 @@
                 navbar.classList.remove('shadow-md');
             }
         });
+
+        (function setupCuisinesFlagOrbit() {
+            const ring = document.getElementById('cuisines-flag-ring');
+            if (!ring) return;
+
+            const flags = [
+                { code: 'us', name: 'United States' },
+                { code: 'gb', name: 'United Kingdom' },
+                { code: 'gr', name: 'Greece' },
+                { code: 'fr', name: 'France' },
+                { code: 'it', name: 'Italy' },
+                { code: 'de', name: 'Germany' },
+                { code: 'es', name: 'Spain' },
+                { code: 'pt', name: 'Portugal' },
+                { code: 'ch', name: 'Switzerland' },
+                { code: 'se', name: 'Sweden' },
+                { code: 'no', name: 'Norway' },
+                { code: 'fi', name: 'Finland' },
+                { code: 'ca', name: 'Canada' },
+                { code: 'mx', name: 'Mexico' },
+                { code: 'br', name: 'Brazil' },
+                { code: 'ar', name: 'Argentina' },
+                { code: 'eg', name: 'Egypt' },
+                { code: 'lb', name: 'Lebanon' },
+                { code: 'et', name: 'Ethiopia' },
+                { code: 'in', name: 'India' },
+                { code: 'jp', name: 'Japan' },
+                { code: 'kr', name: 'South Korea' },
+                { code: 'cn', name: 'China' },
+                { code: 'au', name: 'Australia' }
+            ];
+
+            const radius = ring.clientWidth / 2 - 30;
+
+            flags.forEach((flag, i) => {
+                const angle = (i / flags.length) * (Math.PI * 2);
+                const x = Math.cos(angle) * radius;
+                const y = Math.sin(angle) * radius;
+
+                const slot = document.createElement('span');
+                slot.className = 'festival-flag';
+                slot.style.left = `calc(50% + ${x}px)`;
+                slot.style.top = `calc(50% + ${y}px)`;
+
+                const image = document.createElement('img');
+                image.src = `https://flagcdn.com/w80/${flag.code}.png`;
+                image.alt = `${flag.name} flag`;
+                image.loading = 'lazy';
+
+                slot.appendChild(image);
+                ring.appendChild(slot);
+            });
+        })();
+
     </script>
 
 </body>
