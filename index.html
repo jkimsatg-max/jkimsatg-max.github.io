@@ -93,7 +93,7 @@
         transition: none;
     }
 }
-.about-instagram-carousel {
+.about-photo-carousel {
     position: relative;
 }
 
@@ -108,10 +108,10 @@
     flex: 0 0 100%;
 }
 
-.about-carousel-slide iframe {
+.about-carousel-slide img {
     width: 100%;
-    min-height: 384px;
-    border: 0;
+    height: 384px;
+    object-fit: cover;
 }
 
 .about-carousel-btn {
@@ -130,8 +130,8 @@
 }
 
 @media (max-width: 768px) {
-    .about-carousel-slide iframe {
-        min-height: 330px;
+    .about-carousel-slide img {
+        height: 330px;
     }
 }
 
@@ -330,47 +330,43 @@
         </div>
 
 
-      <!-- RIGHT SIDE (Instagram Carousel + Tag) -->
+      <!-- RIGHT SIDE (Photo Carousel + Tag) -->
       <div class="relative">
         <div class="absolute -top-4 -left-4 w-full h-full bg-church-gold/20 rounded-2xl"></div>
-   <div class="relative rounded-2xl shadow-2xl overflow-hidden bg-white about-instagram-carousel">
+   <div class="relative rounded-2xl shadow-2xl overflow-hidden bg-white about-photo-carousel">
           <button type="button"
                   class="about-carousel-btn prev bg-white/90 hover:bg-white text-church-blue rounded-full p-2 shadow"
                   id="about-carousel-prev"
-                  aria-label="Previous Instagram post">
+                  aria-label="Previous photo">
             <i data-lucide="chevron-left" class="w-5 h-5"></i>
           </button>
 
           <div class="about-carousel-track" id="about-carousel-track">
             <div class="about-carousel-slide">
               <img
-                src="St+Anthony+bout+Pic%20(1).webp"
-                alt="St. Anthony the Great Orthodox Christian Church"
-                class="w-full h-96 object-cover"
+                src="1_pic.webp"
+                alt="Festival photo 1"
               >
             </div>
-            <div class="about-carousel-slide bg-white">
-              <iframe
-                title="Instagram post 1"
-                src="https://www.instagram.com/p/C0UG92nL6bv/embed"
-                loading="lazy"
-                allowtransparency="true">
-              </iframe>
+            <div class="about-carousel-slide">
+              <img
+                src="2_pic.webp"
+                alt="Festival photo 2"
+              >
+                
             </div>
-            <div class="about-carousel-slide bg-white">
-              <iframe
-                title="Instagram post 2"
-                src="https://www.instagram.com/p/Cx2l7afLCPf/embed"
-                loading="lazy"
-                allowtransparency="true">
-              </iframe>
+            <div class="about-carousel-slide">
+              <img
+                src="3_pic.jpg"
+                alt="Festival photo 3"
+              >
             </div>
           </div>
 
           <button type="button"
                   class="about-carousel-btn next bg-white/90 hover:bg-white text-church-blue rounded-full p-2 shadow"
                   id="about-carousel-next"
-                  aria-label="Next Instagram post">
+                  aria-label="Next photo">
             <i data-lucide="chevron-right" class="w-5 h-5"></i>
           </button>
 
@@ -656,7 +652,7 @@
 })();
 
 
-(function setupAboutInstagramCarousel() {
+(function setupAboutPhotoCarousel() {
     const track = document.getElementById('about-carousel-track');
     const prev = document.getElementById('about-carousel-prev');
     const next = document.getElementById('about-carousel-next');
