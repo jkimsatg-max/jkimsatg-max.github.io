@@ -93,10 +93,49 @@
         transition: none;
     }
 }
+.about-instagram-carousel {
+    position: relative;
+}
 
+.about-carousel-track {
+    display: flex;
+    transition: transform 450ms ease;
+    will-change: transform;
+}
 
+.about-carousel-slide {
+    min-width: 100%;
+    flex: 0 0 100%;
+}
 
-        
+.about-carousel-slide iframe {
+    width: 100%;
+    min-height: 384px;
+    border: 0;
+}
+
+.about-carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.about-carousel-btn.prev {
+    left: 0.75rem;
+}
+
+.about-carousel-btn.next {
+    right: 0.75rem;
+}
+
+@media (max-width: 768px) {
+    .about-carousel-slide iframe {
+        min-height: 330px;
+    }
+}
+
+   
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-stone-50">
@@ -292,15 +331,56 @@
         </div>
       </div>
 
-      <!-- RIGHT SIDE (Image + Tag) -->
+      <!-- RIGHT SIDE (Instagram Carousel + Tag) -->
       <div class="relative">
         <div class="absolute -top-4 -left-4 w-full h-full bg-church-gold/20 rounded-2xl"></div>
+<div class="relative rounded-2xl shadow-2xl overflow-hidden bg-white about-instagram-carousel">
+          <button type="button"
+                  class="about-carousel-btn prev bg-white/90 hover:bg-white text-church-blue rounded-full p-2 shadow"
+                  id="about-carousel-prev"
+                  aria-label="Previous Instagram post">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
 
-        <img 
-          src="St+Anthony+bout+Pic%20(1).webp" 
-          alt="St. Anthony the Great Orthodox Christian Church"
-          class="relative rounded-2xl shadow-2xl w-full object-cover h-96"
-        >
+          <div class="about-carousel-track" id="about-carousel-track">
+            <div class="about-carousel-slide">
+              <img
+                src="St+Anthony+bout+Pic%20(1).webp"
+                alt="St. Anthony the Great Orthodox Christian Church"
+                class="w-full h-96 object-cover"
+              >
+            </div>
+            <div class="about-carousel-slide bg-white">
+              <iframe
+                title="Instagram post 1"
+                src="https://www.instagram.com/p/C0UG92nL6bv/embed"
+                loading="lazy"
+                allowtransparency="true">
+              </iframe>
+            </div>
+            <div class="about-carousel-slide bg-white">
+              <iframe
+                title="Instagram post 2"
+                src="https://www.instagram.com/p/Cx2l7afLCPf/embed"
+                loading="lazy"
+                allowtransparency="true">
+              </iframe>
+            </div>
+          </div>
+
+          <button type="button"
+                  class="about-carousel-btn next bg-white/90 hover:bg-white text-church-blue rounded-full p-2 shadow"
+                  id="about-carousel-next"
+                  aria-label="Next Instagram post">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+
+          <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2" id="about-carousel-dots">
+            <button type="button" class="h-2.5 w-2.5 rounded-full bg-church-blue/90" aria-label="Show slide 1"></button>
+            <button type="button" class="h-2.5 w-2.5 rounded-full bg-white/80 border border-church-blue/40" aria-label="Show slide 2"></button>
+            <button type="button" class="h-2.5 w-2.5 rounded-full bg-white/80 border border-church-blue/40" aria-label="Show slide 3"></button>
+          </div>
+        </div>
 
         <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl">
           <div class="flex items-center space-x-3">
@@ -574,6 +654,50 @@
     });
 
     queueNextSlide();
+})();
+
+(function setupAboutInstagramCarousel() {
+    const track = document.getElementById('about-carousel-track');
+    const prev = document.getElementById('about-carousel-prev');
+    const next = document.getElementById('about-carousel-next');
+    const dotWrap = document.getElementById('about-carousel-dots');
+    if (!track || !prev || !next || !dotWrap) return;
+
+    const slides = Array.from(track.children);
+    const dots = Array.from(dotWrap.children);
+    if (!slides.length) return;
+
+    let index = 0;
+
+    const update = () => {
+        track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+        dots.forEach((dot, i) => {
+            const isActive = i === index;
+            dot.classList.toggle('bg-church-blue/90', isActive);
+            dot.classList.toggle('bg-white/80', !isActive);
+            dot.classList.toggle('border', !isActive);
+            dot.classList.toggle('border-church-blue/40', !isActive);
+        });
+    };
+
+    prev.addEventListener('click', () => {
+        index = (index - 1 + slides.length) % slides.length;
+        update();
+    });
+
+    next.addEventListener('click', () => {
+        index = (index + 1) % slides.length;
+        update();
+    });
+
+    dots.forEach((dot, dotIndex) => {
+        dot.addEventListener('click', () => {
+            index = dotIndex;
+            update();
+        });
+    });
+
+    update();
 })();
 </script>
 </body>
