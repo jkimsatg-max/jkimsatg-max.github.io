@@ -41,6 +41,7 @@
         .festival-globe-wrap {
         --ring-size: min(90vw, 620px);
         --globe-size: clamp(11rem, 40vw, 20rem);
+        --orbit-radius: calc((var(--ring-size) - clamp(48px, 6vw, 62px)) / 2 - 8px);
         position: relative;
         width: var(--ring-size);
         aspect-ratio: 1;
@@ -50,40 +51,32 @@
         }
 
         .festival-ring {
+        position: absolute;
+        inset: 0;
         width: 100%;
         height: 100%;
         border-radius: 9999px;
         border: 8px solid transparent;
-        position: relative;
         animation: festivalSpin 28s linear infinite;
         box-shadow: none;
         background: transparent;
         }
          
-         .festival-ring-center {
+        .festival-flag-slot {
             position: absolute;
-            inset: 22%;
-            border-radius: 9999px;
-            display: grid;
-            place-items: center;
-            text-align: center;
-            padding: 1rem;
-            font-family: 'Playfair Display', serif;
-            color: #1E3A8A;
-            background: rgba(255,255,255,0.92);
-            box-shadow: inset 0 0 0 2px rgba(30, 58, 138, 0.2), 0 8px 16px rgba(0,0,0,0.1);
-            font-size: clamp(0.9rem, 1.9vw, 1.25rem);
-            line-height: 1.35;
-            z-index: 1;
+            left: 50%;
+            top: 50%;
+            transform: rotate(var(--slot-angle, 0deg)) translateX(var(--orbit-radius));
+            transform-origin: center center;
         }
          
       .festival-flag {
             position: absolute;
-            left: 50%;
-            top: 50%;
+            left: 0%;
+            top: 0%;
             width: clamp(48px, 6vw, 62px);
             aspect-ratio: 4 / 3;
-            transform: translate(-50%, -50%) rotate(var(--flag-rotate, 0deg));
+            transform: translate(-50%, -50%);
             background: #fff;
             border-radius: 0.1rem;
             border: 1px solid rgba(255,255,255,0.85);
@@ -91,6 +84,7 @@
             z-index: 2;
             overflow: hidden;
             display: block;
+            animation: counterSpin 28s linear infinite;
         }
 
         .festival-flag img {
@@ -194,13 +188,17 @@
             <!-- Spinning flag ring -->
             <div class="festival-ring" id="cuisines-flag-ring"></div>
 
-<!-- Globe in center -->
-<div class="festival-globe">
-    <img 
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Whole_world_-_land_and_oceans_12000.jpg/1280px-Whole_world_-_land_and_oceans_12000.jpg"
-        alt="Globe showing world map"
-    >
-</div>
+            <!-- Globe in center -->
+            <div class="festival-globe">
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Whole_world_-_land_and_oceans_12000.jpg/1280px-Whole_world_-_land_and_oceans_12000.jpg"
+                    alt="Globe showing world map"
+                >
+            </div>
+        </div>
+    </div>
+</section>
+
         <!-- Text and social icons below the ring -->
 <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -239,7 +237,6 @@
             </div>
         </div>
 
-    </div>
 </section>
 
  <!-- Footer -->
@@ -381,25 +378,26 @@
                 { code: 'au', name: 'Australia' }
             ];
 
-            const radius = ring.clientWidth / 2 - 30;
+
 
             flags.forEach((flag, i) => {
-                const angle = (i / flags.length) * (Math.PI * 2);
-                const x = Math.cos(angle) * radius;
-                const y = Math.sin(angle) * radius;
+
 
                 const slot = document.createElement('span');
-                slot.className = 'festival-flag';
-                slot.style.left = `calc(50% + ${x}px)`;
-                slot.style.top = `calc(50% + ${y}px)`;
-                slot.style.setProperty('--flag-rotate', `${(angle * 180 / Math.PI) + 90}deg`);
+                slot.className = 'festival-flag-slot';
+                const angle = (i / flags.length) * 360;
+                slot.style.setProperty('--slot-angle', `${angle}deg`);
+
+                const flagCard = document.createElement('span');
+                flagCard.className = 'festival-flag';
 
                 const image = document.createElement('img');
                 image.src = `https://flagcdn.com/w80/${flag.code}.png`;
                 image.alt = `${flag.name} flag`;
                 image.loading = 'lazy';
 
-                slot.appendChild(image);
+                flagCard.appendChild(image);
+                slot.appendChild(flagCard);
                 ring.appendChild(slot);
             });
         })();
