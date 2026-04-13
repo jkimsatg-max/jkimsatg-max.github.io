@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     
-   <script>
+  <script>
         tailwind.config = {
             theme: {
                 extend: {
@@ -45,6 +45,9 @@
             }
         }
     </script>
+    
+                  
+
     
     <style>
     
@@ -88,49 +91,6 @@
 @media (prefers-reduced-motion: reduce) {
  .hero-scroll-track {
         transition: none;
-    }
-}
-
-        </section>
-.about-photo-carousel {
-    position: relative;
-}
-
-.about-carousel-track {
-    display: flex;
-    transition: transform 450ms ease;
-    will-change: transform;
-}
-
-.about-carousel-slide {
-    min-width: 100%;
-    flex: 0 0 100%;
-}
-
-.about-carousel-slide img {
-    width: 100%;
-    height: 384px;
-    object-fit: cover;
-}
-
-.about-carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-}
-
-.about-carousel-btn.prev {
-    left: 0.75rem;
-}
-
-.about-carousel-btn.next {
-    right: 0.75rem;
-}
-
-@media (max-width: 768px) {
-    .about-carousel-slide img {
-        height: 330px;
     }
 }
 
