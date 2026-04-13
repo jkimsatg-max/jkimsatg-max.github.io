@@ -117,43 +117,21 @@
             }
         }
 
-         .festival-globe {
+   .festival-globe {
     position: absolute;
     width: var(--globe-size);
     height: var(--globe-size);
     border-radius: 9999px;
-    background:
-        radial-gradient(circle at 32% 28%, rgba(255,255,255,0.88), rgba(255,255,255,0.25) 30%, transparent 45%),
-        radial-gradient(circle at 65% 66%, rgba(0,0,0,0.2), transparent 46%),
-        linear-gradient(145deg, #fafafa 0%, #dedede 48%, #f7f7f7 100%);
-    box-shadow:
-        inset -16px -20px 34px rgba(0,0,0,0.18),
-        inset 14px 14px 26px rgba(255,255,255,0.55),
-        0 18px 38px rgba(0,0,0,0.25);
     overflow: hidden;
     z-index: 1;
+    box-shadow: 0 18px 38px rgba(0,0,0,0.25);
 }
-.festival-globe::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background-image:
-        repeating-linear-gradient(to right, transparent 0 20px, rgba(0,0,0,0.16) 20px 22px),
-        repeating-linear-gradient(to bottom, transparent 0 20px, rgba(0,0,0,0.12) 20px 22px);
-    opacity: 0.45;
-}
-.festival-globe::after {
-    content: '';
-    position: absolute;
-    inset: 12% 10%;
-    border-radius: 50%;
-    background:
-        radial-gradient(circle at 25% 30%, #111 0 18%, transparent 19%),
-        radial-gradient(circle at 65% 25%, #111 0 14%, transparent 15%),
-        radial-gradient(circle at 50% 70%, #111 0 20%, transparent 21%);
-    opacity: 0.9;
-    filter: blur(1px);
+
+.festival-globe img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
     </style>
    
@@ -216,11 +194,13 @@
             <!-- Spinning flag ring -->
             <div class="festival-ring" id="cuisines-flag-ring"></div>
 
-            <!-- Globe in center -->
-            <div class="festival-globe"></div>
-
-        </div>
-
+<!-- Globe in center -->
+<div class="festival-globe">
+    <img 
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Whole_world_-_land_and_oceans_12000.jpg/1280px-Whole_world_-_land_and_oceans_12000.jpg"
+        alt="Globe showing world map"
+    >
+</div>
         <!-- Text and social icons below the ring -->
 <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
