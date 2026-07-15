@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Come and See who we are and have food and fun at our 1st annual international food fest">
@@ -48,7 +48,7 @@
         
     <style>
 
-        
+     
         .social-icon {
             display: inline-flex;
             align-items: center;
@@ -87,7 +87,7 @@
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 8%, #fd5949 45%, #d6249f 62%, #285aeb 90%);
         }
 
-
+    
         .gradient-hero {
             background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 50%, #D4AF37 100%);
         }
@@ -131,23 +131,23 @@
     }
 }
 .about-photo-carousel {
-    position: relative;
+    min-height: 650px;
 }
 
 .about-carousel-track {
     display: flex;
-    transition: transform 450ms ease;
-    will-change: transform;
+    height: 100%;
+    transition: transform 0.5s ease;
 }
 
 .about-carousel-slide {
     min-width: 100%;
-    flex: 0 0 100%;
+    height: 100%;
 }
 
 .about-carousel-slide img {
     width: 100%;
-    height: 384px;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -167,43 +167,44 @@
 }
 
 @media (max-width: 768px) {
+    .about-photo-carousel {
+        height: 330px !important;
+        min-height: 330px !important;
+    }
+
     .about-carousel-slide img {
         height: 330px;
     }
 }
-
 
    
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-stone-50">
 
-    <!-- Navigation -->
+
+
+
+ <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-[100rem] mx-auto px-2 sm:px-3 lg:px-4">
             <div class="flex justify-between items-center h-20">
-                  <a href="index.html" class="flex items-center -ml-2 min-w-0 flex-shrink">
+                <a href="index.html" class="flex items-center -ml-2 min-w-0 flex-shrink">
                     <div class="flex items-center gap-1 min-w-0">
-                    <img src="1_ifflogo.png"
-                         alt="Food Festival Logo 1"
-                         class="h-14 sm:h-16 lg:h-20 w-auto object-contain flex-shrink-0"
-                         onerror="this.style.display='none'">
-                    <img src="2_ifflogo.png"
-                         alt="Food Festival Logo 2"
-                         class="hidden sm:block h-8 sm:h-10 w-auto object-contain flex-shrink-0"
-                         onerror="this.style.display='none'">
-                </div>
+                        <img src="1_ifflogo.png" alt="Food Festival Logo 1" class="h-14 sm:h-16 lg:h-20 w-auto object-contain flex-shrink-0" onerror="this.style.display='none'">
+                        <img src="2_ifflogo.png" alt="Food Festival Logo 2" class="hidden sm:block h-8 sm:h-10 w-auto object-contain flex-shrink-0" onerror="this.style.display='none'">
+                    </div>
                 </a>
 
                 
-                <div class="hidden md:flex items-center space-x-5 lg:space-x-8">
+            <div class="hidden md:flex items-center space-x-3 lg:space-x-5">
                 <a href="index.html" class="text-church-gold font-semibold border-b-2 border-church-gold">Home</a>
                 <a href="about.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">About</a>
-                <a href="cuisines.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Cuisines</a>
-                <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>  
-                <a href="sponsorship.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Sponsorship</a>   
-                <a href="contact.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Contact</a>
-
+                    <a href="cuisines.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Cuisines</a>
+                    <a href="schedule.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Schedule</a>
+                    <a href="sponsorship.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Sponsorship</a>
+                    <a href="vendors.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Vendors</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-church-gold font-medium transition-colors">Contact</a>
                 </div>
 
                 <button class="md:hidden p-2 rounded-lg hover:bg-gray-100" onclick="toggleMobileMenu()">
@@ -212,18 +213,17 @@
             </div>
         </div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-4 pt-2 pb-4 space-y-1">
+
+    <!-- Mobile -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t"> 
+        <div class="px-4 pt-2 pb-4 space-y-1">
                 <a href="index.html" class="block px-3 py-2 text-church-gold font-semibold bg-warm-cream rounded-md">Home</a>
                 <a href="about.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">About</a>
                 <a href="cuisines.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Cuisines</a>
-                <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a> 
-                <a href="sponsorship.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Sponsorship</a>  
+                <a href="schedule.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Schedule</a>
+                <a href="sponsorship.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Sponsorship</a>
+                <a href="vendors.html"  class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Vendors</a>
                 <a href="contact.html" class="block px-3 py-2 text-gray-700 hover:bg-warm-cream rounded-md">Contact</a>
-                <a href="" 
-                   target="_blank"
-                 ></a>
             </div>
         </div>
     </nav>
@@ -264,6 +264,7 @@
             <p class="text-xl md:text-2xl text-white/90 mb-2 font-light animate-fade-in-up" style="animation-delay: 0.2s">
                 St. Anthony the Great Orthodox Christian Church
             </p>
+            
             
 <div class="flex flex-wrap justify-center gap-4 mt-8 mb-12 animate-fade-in-up" style="animation-delay: 0.4s">
    <div class="flex flex-col items-center gap-4">
@@ -329,7 +330,7 @@
       <!-- LEFT SIDE (Photo Carousel) -->
       <div class="relative md:order-1">
         <div class="absolute -top-4 -left-4 w-full h-full bg-church-gold/20 rounded-2xl"></div>
-        <div class="relative rounded-2xl shadow-2xl overflow-hidden bg-white about-photo-carousel">
+        <div class="relative rounded-2xl shadow-2xl overflow-hidden bg-white about-photo-carousel h-[650px] lg:h-[700px]">
           <button type="button"
                   class="about-carousel-btn prev bg-white/90 hover:bg-white text-church-blue rounded-full p-2 shadow"
                   id="about-carousel-prev"
@@ -339,13 +340,18 @@
 
           <div class="about-carousel-track" id="about-carousel-track">
             <div class="about-carousel-slide">
-              <img src="1_pic.webp" alt="Festival photo 1">
+              <img src="1_pic.webp" alt="Festival photo 1"
+                class="w-full h-full object-cover">
             </div>
             <div class="about-carousel-slide">
-              <img src="9_pic.jpg" alt="Festival photo 2">
+              <img src="9_pic.jpg" 
+                  alt="Festival photo 2"
+                  class="w-full h-full object-cover">
             </div>
             <div class="about-carousel-slide">
-              <img src="6_pic.jpg" alt="Festival photo 3">
+              <img src="6_pic.jpg" 
+                  alt="Festival photo 3"
+                  class="w-full h-full object-cover">
             </div>
           </div>
 
@@ -374,23 +380,30 @@
             </div>
           </div>
         </div>
-      </div>
-
+      </div>    
+          
       <!-- RIGHT SIDE (Text Content) -->
       <div class="space-y-6 md:order-2">
         <div class="inline-block bg-church-gold/10 text-church-gold px-4 py-1 rounded-full text-sm font-semibold tracking-wide">
           ABOUT
         </div>
 
-        <h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">
-          Who We Are
-        </h2>
-
-        <p class="text-lg text-gray-600 leading-relaxed">
-          St. Anthony the Great Orthodox Christian Church is a Pan-Orthodox Church that continues the same religious traditions and teachings of the Apostles as learned from Jesus Christ - love God and love your neighbor.
-          <a href="about.html" class="font-semibold text-church-gold hover:text-yellow-600 transition">Read more</a>
-        </p>
-
+<h2 class="font-serif text-4xl md:text-5xl font-bold text-gray-900">
+    Who We Are
+</h2>
+                    <p class="text-md text-gray-600 leading-relaxed">
+                        St. Anthony the Great Orthodox Christian Church in Spring, Texas is a Pan-Orthodox parish rooted in the Apostolic Faith of the Orthodox Church. We are a welcoming community living out Christ’s command to love God and love our neighbor.                    </p>
+                    <p class="text-md text-gray-600 leading-relaxed">
+                        St. Anthony's began as an outreach program in 1982 extending from our mother parish, St. George, who wanted to establish an Orthodox Christian Church in the Northwest Houston area. Initial meetings were held in a subdivision clubhouse and homes until a temporary place of worship was established in a shopping center suite on FM 1960. Worship then moved to a small property in 1987 after land was purchased by parishioners. In April of 2011, St. Anthony's moved to its current location and continues to seek ways to connect with the surrounding community.
+                    </p>
+                    <p class="text-md text-gray-600 leading-relaxed">
+                  We are so excited to welcome you to our inaugural International Food Festival! What makes our parish so special is the diversity of cultures and traditions we bring together, and this festival is a beautiful reflection of that unity. Welcoming others is at the heart of who we are, and we invite you to experience the warmth of our parish family, our faith, and the rich cultures, traditions, and flavors from around the world.
+                  </p>  
+              <p class="text-md text-gray-600 leading-relaxed">
+                Come taste and see!
+                    </p>
+             
+     <div class="pt-2">
         <p class="text-lg text-gray-600">Follow us on</p>
         <div class="mt-3 flex items-center gap-4">
           <a href="https://www.facebook.com/InternationalFoodFestival" target="_blank" rel="noopener noreferrer" class="social-icon social-facebook social-lg" aria-label="Follow us on Facebook">
@@ -410,7 +423,7 @@
 
     </div>
   </div>
-</section>
+</section> 
 
 
 
@@ -521,8 +534,8 @@
             <!-- Column 1 -->
             <div class="flex flex-col items-center sm:items-start">
                 <div class="flex items-center gap-2 mb-4">
-                    <i data-lucide="church" class="h-6 w-6 text-orthodox-gold"></i>
-                    <span class="font-cinzel font-bold text-white text-lg">
+                    <i data-lucide="church" class="h-6 w-6 text-church-gold"></i>
+                    <span class="font-serif font-bold text-white text-lg">
                         SATG International Food Festival
                     </span>
                 </div>
@@ -533,7 +546,7 @@
                     <a href="https://www.facebook.com/InternationalFoodFestival"
                        target="_blank"
                        rel="noopener noreferrer"
-                       class="text-orthodox-gold hover:text-white transition">
+                       class="text-church-gold hover:text-white transition">
                         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.099 4.388 23.094 10.125 24v-8.438H7.078v-3.49h3.047V9.41c0-3.017 1.792-4.686 4.533-4.686 1.313 0 2.687.236 2.687.236v2.963h-1.515c-1.493 0-1.958.931-1.958 1.887v2.265h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.099 24 12.073z"/>
                         </svg>
@@ -541,7 +554,7 @@
                  <a href="https://www.instagram.com/satginternationalfoodfestival/"
                        target="_blank"
                        rel="noopener noreferrer"
-                       class="text-orthodox-gold hover:text-white transition">
+                       class="text-church-gold hover:text-white transition">
                         <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zM4 7.75A3.75 3.75 0 0 1 7.75 4h8.5A3.75 3.75 0 0 1 20 7.75v8.5A3.75 3.75 0 0 1 16.25 20h-8.5A3.75 3.75 0 0 1 4 16.25v-8.5z"/>
                             <path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
@@ -553,24 +566,25 @@
 
             <!-- Column 2 -->
             <div>
-                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Quick Links</h4>
+                <h4 class="font-serif font-bold text-white mb-4 text-lg">Quick Links</h4>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="index.html" class="hover:text-orthodox-gold transition">Home</a></li>
-                    <li><a href="about.html" class="hover:text-orthodox-gold transition">About</a></li>
-                    <li><a href="cuisines.html" class="hover:text-orthodox-gold transition">Cuisines</a></li>
-                    <li><a href="schedule.html" class="hover:text-orthodox-gold transition">Schedule</a></li>   
-                    <li><a href="sponsorship.html" class="hover:text-orthodox-gold transition">Sponsorship</a></li>   
-                    <li><a href="contact.html" class="hover:text-orthodox-gold transition">Contact Us</a></li>
+                    <li><a href="index.html" class="hover:text-church-gold transition">Home</a></li>
+                    <li><a href="about.html" class="hover:text-church-gold transition">About</a></li>
+                    <li><a href="cuisines.html" class="hover:text-church-gold transition">Cuisines</a></li>
+                    <li><a href="schedule.html" class="hover:text-church-gold transition">Schedule</a></li>   
+                    <li><a href="sponsorship.html" class="hover:text-church-gold transition">Sponsorship</a></li>   
+                    <li><a href="vendors.html" class="hover:text-orthodox-gold transition">Vendors</a></li>
+                    <li><a href="contact.html" class="hover:text-church-gold transition">Contact Us</a></li>
 
                 </ul>
             </div>
 
             <!-- Column 3 -->
             <div>
-                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Contact Info</h4>
+                <h4 class="font-serif font-bold text-white mb-4 text-lg">Contact Info</h4>
                 <ul class="space-y-3 text-sm">
                     <li class="flex items-start justify-center sm:justify-start gap-2">
-                        <i data-lucide="map-pin" class="h-4 w-4 mt-1 text-orthodox-gold"></i>
+                        <i data-lucide="map-pin" class="h-4 w-4 mt-1 text-church-gold"></i>
                         <span>
                             7202 Farm to Market 2920<br>
                             Spring, TX 77379
@@ -578,7 +592,7 @@
                     </li>
 
                     <li class="flex items-center justify-center sm:justify-start gap-2">
-                        <i data-lucide="mail" class="h-4 w-4 text-orthodox-gold"></i>
+                        <i data-lucide="mail" class="h-4 w-4 text-church-gold"></i>
                         <span>info@satginternationalfoodfest.org</span>
                     </li>
                 </ul>
@@ -586,7 +600,7 @@
 
             <!-- Column 4 (Optional Balance Column) -->
             <div class="flex flex-col items-center sm:items-start">
-                <h4 class="font-cinzel font-bold text-white mb-4 text-lg">Festival Hours</h4>
+                <h4 class="font-serif font-bold text-white mb-4 text-lg">Festival Hours</h4>
                 <p class="text-sm">Friday: 4 PM – 10 PM</p>
                 <p class="text-sm">Saturday: 11 AM – 10 PM</p>
             
@@ -625,8 +639,8 @@
     const track = document.getElementById('hero-scroll-track');
     if (!track) return;
     
- const slides = track.querySelectorAll('.hero-scroll-image');
-    const uniqueCount = slides.length - 1;
+const slides = track.querySelectorAll('.hero-scroll-image');
+const uniqueCount = slides.length;
     if (uniqueCount <= 0) return;
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -650,21 +664,18 @@
     };
 
     
-    track.addEventListener('transitionend', () => {
-        if (index === uniqueCount) {
-            track.style.transitionDuration = '0ms';
-            track.style.transform = 'translate3d(0, 0, 0)';
-            index = 0;
-            track.getBoundingClientRect();
-            window.requestAnimationFrame(() => {
-                track.style.transitionDuration = `${moveMs}ms`;
-             });
-        }
+track.addEventListener('transitionend', () => {
+    if (index >= uniqueCount) {
+        index = 0;
+        track.style.transitionDuration = '0ms';
+        track.style.transform = 'translate3d(0,0,0)';
+        track.offsetHeight;
+        track.style.transitionDuration = `${moveMs}ms`;
+    }
 
-        
-        isTransitioning = false;
-        queueNextSlide();
-    });
+    isTransitioning = false;
+    queueNextSlide();
+});
 
     queueNextSlide();
 })();
