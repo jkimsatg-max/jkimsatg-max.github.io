@@ -82,116 +82,252 @@
         background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
         }
 
-        .world-ring-wrap {
-            background: white;
-            padding: 3.5rem 1rem 4rem;
+          /* ---------- Header: soft gold rule + faint pattern ---------- */
+        .header-pattern {
+            position: relative;
+            overflow: hidden;
         }
-        .festival-globe-wrap {
-        --ring-size: min(90vw, 620px);
-        --globe-size: clamp(11rem, 40vw, 20rem);
-        --orbit-radius: calc((var(--ring-size) - clamp(48px, 6vw, 62px)) / 2 - 8px);
-        position: relative;
-        width: var(--ring-size);
-        aspect-ratio: 1;
-        margin: 0 auto;
-        display: grid;
-        place-items: center;
-        }
-
-        .festival-ring {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 9999px;
-        border: 8px solid transparent;
-        animation: festivalSpin 28s linear infinite;
-        box-shadow: none;
-        background: transparent;
-        }
-         
-        .festival-flag-slot {
+        .header-pattern::before {
+            content: "";
             position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: rotate(var(--slot-angle, 0deg)) translateX(var(--orbit-radius));
-            transform-origin: center center;
+            inset: 0;
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M24 4l4 20-4 20-4-20z M4 24l20-4 20 4-20 4z' fill='none' stroke='%23ffffff' stroke-opacity='0.12' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 48px 48px;
+            pointer-events: none;
         }
-         
-.festival-flag {
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    width: clamp(48px, 6vw, 62px);
-    aspect-ratio: 4 / 3;
+        .header-pattern > * { position: relative; }
+        .gold-rule {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #D4AF37 20%, #D4AF37 80%, transparent);
+        }
 
-    /* FIX */
-    transform:
-        translate(-50%, -50%)
-        rotate(calc(-1 * var(--slot-angle)));
+        /* ---------- Banner section ---------- */
+        .banner-section {
+            background-color: #fffdf7;
+            background-image:
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='1.6' fill='%23D4AF37' fill-opacity='0.28'/%3E%3Cpath d='M32 14l3 15 15 3-15 3-3 15-3-15-15-3 15-3z' fill='none' stroke='%23D4AF37' stroke-opacity='0.12' stroke-width='1'/%3E%3C/svg%3E");
+            background-size: 64px 64px;
+        }
 
-    background: #fff;
-    border-radius: 0.1rem;
-    border: 1px solid rgba(255,255,255,0.85);
-    box-shadow: none;
-    z-index: 2;
-    overflow: hidden;
-    display: block;
+        /* Section title with flanking gold rules and an icon */
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .section-title::before,
+        .section-title::after {
+            content: "";
+            flex: 1 1 0;
+            max-width: 9rem;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #D4AF37);
+        }
+        .section-title::after {
+            background: linear-gradient(270deg, transparent, #D4AF37);
+        }
+        .section-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 9999px;
+            background: #1E3A8A;
+            color: #D4AF37;
+            box-shadow: 0 0 0 4px #fffdf7, 0 0 0 6px #D4AF37;
+            flex-shrink: 0;
+        }
 
-    animation: counterSpin 28s linear infinite;
-}
-
-        .festival-flag img {
+        /* A banner "sign" */
+        .banner-card {
+            display: block;
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            padding: 0;
+            border: 0;
+            background: #fff;
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: zoom-in;
+            position: relative;
+            box-shadow:
+                0 0 0 1px rgba(212, 175, 55, 0.55),
+                0 0 0 6px #ffffff,
+                0 0 0 7px rgba(30, 58, 138, 0.18),
+                0 14px 30px rgba(30, 58, 138, 0.14);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .banner-card:hover,
+        .banner-card:focus-visible {
+            transform: translateY(-4px);
+            box-shadow:
+                0 0 0 1px #D4AF37,
+                0 0 0 6px #ffffff,
+                0 0 0 7px rgba(212, 175, 55, 0.7),
+                0 20px 38px rgba(30, 58, 138, 0.22);
+        }
+        .banner-card:focus-visible {
+            outline: 3px solid #1E3A8A;
+            outline-offset: 8px;
+        }
+        .banner-card img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        .banner-card .menu-hint {
+            position: absolute;
+            right: 0.6rem;
+            bottom: 0.6rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.65rem;
+            border-radius: 9999px;
+            background: rgba(30, 58, 138, 0.88);
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+            pointer-events: none;
+        }
+.banner-card:hover .menu-hint,
+.banner-card:focus-visible .menu-hint {
+    opacity: 1;
+    transform: none;
+}
+        /* Touch devices have no hover: keep the hint visible */
+        @media (hover: none) {
+        .banner-card .menu-hint { opacity: 1; transform: none; }
+        }
+
+        /* Soft fade-in as banners scroll into view (only when JS is on) */
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .js .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Little star divider between banners */
+        .star-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            color: #D4AF37;
+            padding: 0.25rem 0;
+        }
+        .star-divider span {
+            width: 0.35rem;
+            height: 0.35rem;
+            background: currentColor;
+            transform: rotate(45deg);
             display: block;
         }
-
-         @keyframes festivalSpin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        .star-divider span:nth-child(2) {
+            width: 0.55rem;
+            height: 0.55rem;
         }
 
-@keyframes counterSpin {
-    from {
-        transform:
-            translate(-50%, -50%)
-            rotate(calc(-1 * var(--slot-angle)))
-            rotate(0deg);
-    }
-
-    to {
-        transform:
-            translate(-50%, -50%)
-            rotate(calc(-1 * var(--slot-angle)))
-            rotate(-360deg);
-    }
-}
+        /* Lightbox */
+        #lightbox {
+            padding: 0;
+            border: 0;
+            background: transparent;
+            max-width: 100vw;
+            max-height: 100vh;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+           #lightbox::backdrop {
+            background: rgba(15, 23, 42, 0.88);
+            backdrop-filter: blur(3px);
+        }
+        .lightbox-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            padding: 1rem;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        /* margin:auto centers the image without clipping the top when it scrolls */
+        .lightbox-inner img {
+            margin: auto;
+            max-width: 100%;
+            max-height: 90vh;
+            width: auto;
+            height: auto;
+            border-radius: 0.75rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            background: #fff;
+            cursor: pointer;
+        }
+        /* Zoomed: full width, scroll to read small text */
+        .lightbox-inner img.zoomed {
+            width: 100%;
+            max-width: 1400px;
+            max-height: none;
+            cursor: zoom-out;
+        }
+        .lightbox-caption {
+            position: fixed;
+            left: 50%;
+            bottom: 0.75rem;
+            transform: translateX(-50%);
+            max-width: calc(100% - 2rem);
+            padding: 0.3rem 0.9rem;
+            border-radius: 9999px;
+            background: rgba(30, 58, 138, 0.92);
+            color: #fff;
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-align: center;
+            pointer-events: none;
+        }
+        .lightbox-close {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 9999px;
+            border: 2px solid #D4AF37;
+            background: #1E3A8A;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .lightbox-close:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 3px;
+        }
 
         @media (prefers-reduced-motion: reduce) {
-            .festival-ring,
-            .festival-flag {
-                animation: none;
+            .banner-card,
+            .banner-card .menu-hint,
+            .js .reveal {
+                transition: none;
             }
-        }
+            .js .reveal { opacity: 1; transform: none; }
+            .banner-card:hover, .banner-card:focus-visible { transform: none; }
+        }  
+    
 
-   .festival-globe {
-    position: absolute;
-    width: var(--globe-size);
-    height: var(--globe-size);
-    border-radius: 9999px;
-    overflow: hidden;
-    z-index: 1;
-    box-shadow: 0 18px 38px rgba(0,0,0,0.25);
-}
-
-.festival-globe img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
     </style>
    
 </head>
@@ -338,32 +474,101 @@
         </div>
     </section>
 
-<!-- World Flag Ring -->
-<section class="world-ring-wrap">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="festival-globe-wrap" aria-label="Moving world flags around a globe">
+   <!-- Food banners (each opens its N_menu.png image) -->
+    <main class="banner-section py-14 sm:py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <!-- Spinning flag ring -->
-            <div class="festival-ring" id="cuisines-flag-ring"></div>
-
-            <!-- Globe in center -->
-            <div class="festival-globe">
-                <img
-                      src="11_globe.png"
-                    alt="Globe showing world map"
-                >
+            <!-- Savory -->
+            <div class="text-center mb-10">
+                <div class="section-title">
+                    <span class="section-icon" aria-hidden="true"><i data-lucide="utensils" class="w-5 h-5"></i></span>
+                </div>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-church-blue mt-4">Around the World on a Plate</h2>
+                <p class="text-gray-600 mt-3 max-w-2xl mx-auto">Look for these signs around the festival grounds. Tap a banner to see its menu.</p>
             </div>
+
+            <div class="space-y-8 sm:space-y-10">
+
+                <button type="button" class="banner-card reveal" data-menu="menu_1.png" data-name="Serbian-American Ćevapi"
+                        aria-label="View menu: Serbian-American Ćevapi">
+                    <img src="1_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="Serbian-American Ćevapi. Od srca! Prijatno! From the Heart. Serbian and American flags with a Serbian coat of arms.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
+
+                <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+
+                <button type="button" class="banner-card reveal" data-menu="menu_2.png" data-name="In Brisket We Trust"
+                        aria-label="View menu: In Brisket We Trust">
+                    <img src="2_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="We came. We smoked. We conquered. In brisket we trust. No bull, just brisket. A banner styled like a vintage banknote with cattle characters.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
+
+                <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+
+                <button type="button" class="banner-card reveal" data-menu="menu_3.png" data-name="Wok &amp; Roll Noodle Cart"
+                        aria-label="View menu: Wok and Roll Noodle Cart">
+                    <img src="3_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="Wok and Roll Noodle Cart. Noodles, beats, good eats. A wok tossing noodles beside a rocker with a guitar.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
+
+                <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+
+                <button type="button" class="banner-card reveal" data-menu="menu_4.png" data-name="Carnaval de Sabores"
+                        aria-label="View menu: Carnaval de Sabores">
+                    <img src="4_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="Carnaval de Sabores, a celebration of Latin American flavor. Colorful coastal scene with a guitarist and folk dancers.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
+
+                <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+
+                <button type="button" class="banner-card reveal" data-menu="menu_5.png" data-name="It's All Greek"
+                        aria-label="View menu: It's All Greek">
+                    <img src="5_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="It's All Greek! Dancers in traditional Greek dress in front of whitewashed buildings with blue domes and pink flowers.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
+            </div>
+
+            <!-- Drinks & sweets -->
+            <div class="text-center mt-16 sm:mt-24 mb-10">
+                <div class="section-title">
+                    <span class="section-icon" aria-hidden="true"><i data-lucide="wine" class="w-5 h-5"></i></span>
+                </div>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-church-blue mt-4">Sips &amp; Sweets</h2>
+                <p class="text-gray-600 mt-3 max-w-2xl mx-auto">Slow down, cool off, and stay awhile.</p>
+            </div>
+
+            <div class="space-y-8 sm:space-y-10">
+
+                <button type="button" class="banner-card reveal" data-menu="menu_6.png" data-name="The Oasis"
+                        aria-label="View menu: The Oasis">
+                    <img src="6_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="The Oasis. Beer, wine, hookah, cigars. Sip. Smoke. Stay awhile. Lanterns, palms and a desert sunset.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
+
+                <div class="star-divider" aria-hidden="true"><span></span><span></span><span></span></div>
+
+                <button type="button" class="banner-card reveal" data-menu="menu_7.png" data-name="Sip &amp; Chill by Teen SOYO"
+                        aria-label="View menu: Sip and Chill by Teen SOYO">
+                    <img src="7_banner.png" width="7680" height="1920" loading="lazy" decoding="async"
+                         alt="Sip and Chill by Teen SOYO. Cold sips, sweet treats. Come sip and see! Retro diner style with checkerboard borders.">
+                    <span class="menu-hint" aria-hidden="true"><i data-lucide="book-open" class="w-3.5 h-3.5"></i> View menu</span>
+                </button>
+            </div>
+
         </div>
-    </div>
-</section>
+    </main>
+    
 
         <!-- Text and social icons below the ring -->
 <section class="py-16 bg-white">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 
-        <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Visit again soon to see what's on the menu
-        </h2>
 
         <p class="text-lg text-gray-700 leading-relaxed mb-8">
             Follow us on
@@ -488,16 +693,27 @@
 </footer>
 
     
-
-            <script>
+    <!-- Lightbox that shows the menu matching the clicked banner -->
+    <dialog id="lightbox" aria-label="Menu">
+        <div class="lightbox-inner" id="lightbox-backdrop">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+        <div class="lightbox-caption" id="lightbox-caption" aria-hidden="true"></div>
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close menu">
+            <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+    </dialog>
+ 
+    <script>
+        document.documentElement.classList.add('js');
         lucide.createIcons();
-        
+ 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         }
-
-        window.addEventListener('scroll', function() {
+ 
+        window.addEventListener('scroll', function () {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('shadow-md');
@@ -505,94 +721,75 @@
                 navbar.classList.remove('shadow-md');
             }
         });
-    </script>
-
-
-
-    
-
-            <script>
-        lucide.createIcons();
-        
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-md');
-            } else {
-                navbar.classList.remove('shadow-md');
+ 
+        /* Fade banners in as they scroll into view */
+        (function setupReveal() {
+            const items = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                items.forEach(el => el.classList.add('is-visible'));
+                return;
             }
-        });
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+            items.forEach(el => io.observe(el));
+        })();
+ 
+        /* Lightbox: clicking a banner opens its matching N_menu.png */
+        (function setupLightbox() {
+            const dialog = document.getElementById('lightbox');
+            const bigImg = document.getElementById('lightbox-img');
+            const caption = document.getElementById('lightbox-caption');
+            const closeBtn = document.getElementById('lightbox-close');
+            const backdrop = document.getElementById('lightbox-backdrop');
+            if (!dialog || typeof dialog.showModal !== 'function') return;
+ 
+            let opener = null;
+ 
+            document.querySelectorAll('.banner-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const menuFile = card.dataset.menu;   // e.g. "1_menu.png"
+                    const name = card.dataset.name || 'Menu';
+                    if (!menuFile) return;
 
+                    bigImg.classList.remove('zoomed');
+                    bigImg.src = menuFile;
+                    bigImg.alt = 'Menu for ' + name;
+                    caption.textContent = name;
+                    opener = card;
+                    dialog.showModal();
+                    dialog.querySelector('.lightbox-inner').scrollTop = 0;
+                    closeBtn.focus();
+                });
+            });
 
-        (function setupCuisinesFlagOrbit() {
-            const ring = document.getElementById('cuisines-flag-ring');
-            if (!ring) return;
-
-            const flags = [
-                { code: 'us', name: 'United States' },
-                { code: 'ph', name: 'Philippines' },
-                { code: 'gr', name: 'Greece' },
-                { code: 'br', name: 'Brazil' },
-                { code: 'it', name: 'Italy' },
-                { code: 'ps', name: 'Palestine' },
-                { code: 'co', name: 'Colombia' },
-                { code: 'cm', name: 'Cameroon' },
-                { code: 'dk', name: 'Denmark' },
-                { code: 'ru', name: 'Russia' },
-                { code: 'no', name: 'Norway' },
-                { code: 'gt', name: 'Guatemala' },
-                { code: 'ca', name: 'Canada' },
-                { code: 'mx', name: 'Mexico' },
-                { code: 'ua', name: 'Ukraine' },
-                { code: 'ar', name: 'Argentina' },
-                { code: 'sv', name: 'El Salvador' },
-                { code: 'lb', name: 'Lebanon' },
-                { code: 'et', name: 'Ethiopia' },
-                { code: 'in', name: 'India' },
-                { code: 'jp', name: 'Japan' },
-                { code: 'kr', name: 'South Korea' },
-                { code: 'cn', name: 'China' },
-                { code: 'au', name: 'Australia' },
-                { code: 'ir', name: 'Iran' },
-                { code: 'jo', name: 'Jordan' },
-                { code: 'pa', name: 'Panama' },
-                { code: 'ro', name: 'Romania' },
-                { code: 'rs', name: 'Serbia' },
-                { code: 'sy', name: 'Syria' },
-                { code: 've', name: 'Venezuela' }
-            ];
-
-
-
-            flags.forEach((flag, i) => {
-
-
-                const slot = document.createElement('span');
-                slot.className = 'festival-flag-slot';
-                const angle = (i / flags.length) * 360;
-                slot.style.setProperty('--slot-angle', `${angle}deg`);
-
-                const flagCard = document.createElement('span');
-                flagCard.className = 'festival-flag';
-
-                const image = document.createElement('img');
-                image.src = `https://flagcdn.com/w80/${flag.code}.png`;
-                image.alt = `${flag.name} flag`;
-                image.loading = 'lazy';
-
-                flagCard.appendChild(image);
-                slot.appendChild(flagCard);
-                ring.appendChild(slot);
+            /* Tap the menu to zoom to full width (scroll to read) and tap again to fit the screen */
+            bigImg.addEventListener('click', () => {
+                bigImg.classList.toggle('zoomed');
+                if (!bigImg.classList.contains('zoomed')) {
+                    dialog.querySelector('.lightbox-inner').scrollTop = 0;
+                }
+            });
+ 
+            function close() {
+                dialog.close();
+            }
+            closeBtn.addEventListener('click', close);
+            backdrop.addEventListener('click', (e) => {
+                if (e.target === backdrop) close();
+            });
+            dialog.addEventListener('close', () => {
+                bigImg.removeAttribute('src');
+                bigImg.classList.remove('zoomed');
+                if (opener) opener.focus();
             });
         })();
-
-
     </script>
-
+ 
 </body>
 </html>
