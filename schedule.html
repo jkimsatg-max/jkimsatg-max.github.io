@@ -91,21 +91,315 @@
         .gradient-header {
             background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
         }
-        .timeline-line {
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(to bottom, #D4AF37, #9B2C2C);
+         /* iOS Safari: stop automatic text inflation in landscape */
+        html {
+            -webkit-text-size-adjust: 100%;
+            text-size-adjust: 100%;
         }
-        @media (max-width: 768px) {
-            .timeline-line {
-                left: 30px;
+
+        /* =====================================================
+           FESTIVAL SCHEDULE
+           Desktop/large tablet (900px+): classic table
+           Below 900px: stacked, time-ordered cards
+           ===================================================== */
+        .festival-schedules {
+            width: 100%;
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .schedule-card {
+            width: 100%;
+            margin: 0 auto 2.5rem;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid #c9c9c9;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+        }
+
+        .schedule-scroll {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .festival-table {
+            width: 100%;
+            min-width: 0; /* was 900px: the cause of the overflow */
+            border-collapse: collapse;
+            table-layout: fixed;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #111111;
+            background: #ffffff;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+        .festival-table caption {
+            caption-side: top;
+            padding: 0.55rem 0.7rem;
+            background: #34434b;
+            color: #ffffff;
+            text-align: left;
+            font-size: 1.18rem;
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .festival-table caption .schedule-hours {
+            font-weight: 700;
+            margin-left: 0.35rem;
+        }
+
+        .festival-table col.time-column {
+            width: 72px;
+        }
+
+        .festival-table th,
+        .festival-table td {
+            border: 1px solid #ffffff;
+            vertical-align: middle;
+        }
+
+        .festival-table thead th {
+            height: 30px;
+            padding: 0.25rem 0.35rem;
+            color: #ffffff;
+            text-align: center;
+            font-size: 0.92rem;
+            line-height: 1.05;
+            font-weight: 700;
+            letter-spacing: 0.015em;
+        }
+
+        .festival-table thead th.time-header     { background: #4a4e51; }
+        .festival-table thead th.main-header     { background: #c89a22; }
+        .festival-table thead th.children-header { background: #347c92; }
+        .festival-table thead th.market-header   { background: #9a2d29; }
+        .festival-table thead th.church-header   { background: #607a91; }
+
+        .festival-table tbody th.time {
+            width: 72px;
+            min-width: 72px;
+            padding: 0.35rem 0.2rem;
+            background: #f4f4f4;
+            color: #111111;
+            text-align: center;
+            font-size: 0.82rem;
+            line-height: 1.05;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .festival-table tbody td {
+            padding: 0.42rem 0.5rem;
+            text-align: left;
+            font-size: 0.88rem;
+            line-height: 1.2;
+        }
+
+        /* Schedule column colors */
+        .main-cell     { background: #fff4d5; }
+        .children-cell { background: #dceff4; }
+        .market-cell   { background: #f5e5e3; }
+        .church-cell   { background: #e7edf1; }
+
+        .closed-cell {
+            background: #ffffff !important;
+            color: #111111;
+        }
+
+        .opening-row td {
+            text-align: center;
+            font-weight: 700;
+            font-style: italic;
+            text-transform: uppercase;
+            padding: 0.4rem;
+        }
+
+        .schedule-event-title {
+            display: block;
+            font-weight: 700;
+        }
+
+        .schedule-event-subtitle {
+            display: block;
+            margin-top: 0.12rem;
+            font-style: italic;
+        }
+
+        .schedule-event-reading {
+            display: block;
+            margin-top: 0.1rem;
+            font-size: 0.84rem;
+            font-weight: 700;
+        }
+
+        .schedule-note {
+            display: block;
+            font-size: 0.78rem;
+            font-style: italic;
+        }
+
+        .schedule-signing {
+            font-weight: 600;
+        }
+
+        .schedule-closing {
+            text-align: center !important;
+            font-weight: 700;
+            font-style: italic;
+            text-transform: uppercase;
+        }
+
+        /* Dense row heights: desktop table only */
+        .saturday-table tbody tr:nth-child(n+2):nth-child(-n+15) td,
+        .saturday-table tbody tr:nth-child(n+2):nth-child(-n+15) th {
+            height: 58px;
+        }
+
+        .friday-table tbody tr td,
+        .friday-table tbody tr th {
+            height: 47px;
+        }
+
+        .friday-table tbody tr:nth-child(2) td,
+        .friday-table tbody tr:nth-child(2) th {
+            height: 78px;
+        }
+
+        /* =====================================================
+           STACKED LAYOUT: phones, landscape phones, tablets < 900px
+           ===================================================== */
+        @media (max-width: 899px) {
+
+            .schedule-card {
+                margin-bottom: 1.75rem;
             }
-        }
+
+            .schedule-scroll {
+                overflow: visible;
+            }
+
+            /* Turn table parts into plain blocks */
+            .festival-table,
+            .festival-table tbody,
+            .festival-table tr,
+            .festival-table th,
+            .festival-table td,
+            .festival-table caption {
+                display: block;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .festival-table colgroup {
+                display: none;
+            }
+
+            /* Hide column headers visually but keep them for screen readers */
+            .festival-table thead {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                margin: -1px;
+                padding: 0;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border: 0;
+            }
+
+            .festival-table caption {
+                font-size: 1.05rem;
+                padding: 0.7rem 0.85rem;
+            }
+
+            .festival-table caption .schedule-hours {
+                display: block;
+                margin: 0.2rem 0 0;
+                font-size: 0.9rem;
+                font-weight: 600;
+            }
+
+            /* Each time slot = one card */
+            .festival-table tbody tr {
+                border-bottom: 1px solid #cfcfcf;
+            }
+
+            .festival-table tbody tr:last-child {
+                border-bottom: 0;
+            }
+
+            .festival-table tbody th.time {
+                min-width: 0;
+                padding: 0.45rem 0.85rem;
+                background: #4a4e51;
+                color: #ffffff;
+                text-align: left;
+                font-size: 0.85rem;
+                letter-spacing: 0.04em;
+                white-space: normal;
+                border: 0;
+            }
+
+            .festival-table tbody td {
+                padding: 0.65rem 0.85rem;
+                font-size: 0.95rem;
+                line-height: 1.35;
+                border: 0;
+                border-left: 5px solid transparent;
+            }
+
+            /* Beat the desktop fixed-height rules */
+            .festival-table tbody th,
+            .festival-table tbody td {
+                height: auto !important;
+                min-height: 0;
+            }
+
+            /* Hide empty / closed cells */
+            .festival-table tbody td:empty,
+            .festival-table tbody td.closed-cell {
+                display: none;
+            }
+
+            /* Area label on every event */
+            .festival-table tbody td::before {
+                display: block;
+                margin-bottom: 0.2rem;
+                font-size: 0.7rem;
+                font-weight: 700;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: #444444;
+            }
+
+            .festival-table td.main-cell::before     { content: "Main Tent"; }
+            .festival-table td.children-cell::before { content: "Children's Village"; }
+            .festival-table td.market-cell::before   { content: "Marketplace"; }
+            .festival-table td.church-cell::before   { content: "Inside the Church"; }
+
+            /* Opening/closing banners don't need a label */
+            .festival-table .opening-row td::before,
+            .festival-table td.schedule-closing::before {
+                display: none;
+            }
+
+            /* Color accent per area (matches desktop header colors) */
+            .festival-table td.main-cell     { border-left-color: #c89a22; }
+            .festival-table td.children-cell { border-left-color: #347c92; }
+            .festival-table td.market-cell   { border-left-color: #9a2d29; }
+            .festival-table td.church-cell   { border-left-color: #607a91; }
+
+            .schedule-event-reading { font-size: 0.85rem; }
+            .schedule-note          { font-size: 0.8rem; }
+        } 
     </style>
 </head>
+
 <body class="font-sans text-gray-800 bg-stone-50">
 
     <!-- Navigation -->
@@ -249,13 +543,472 @@
         </div>
     </section>
 
-<!-- Schedule Content -->
-<section class="py-16 bg-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Schedule Content -->
+    <section class="py-16 bg-white">
+        <div class="festival-schedules px-4 sm:px-6 lg:px-8">
 
-        <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-        Celebrate the diverse cultures of our regions and parish. 
-        </h2>
+
+               <!-- =====================================================
+                 FRIDAY, OCTOBER 9
+                 ===================================================== -->
+            <article class="schedule-card" aria-labelledby="friday-schedule-title">
+                <div class="schedule-scroll">
+                    <table class="festival-table friday-table">
+                        <caption id="friday-schedule-title">
+                            FRIDAY, OCTOBER 9
+                            <span class="schedule-hours">• 4:00 PM–10:00 PM</span>
+                        </caption>
+
+                        <colgroup>
+                            <col class="time-column">
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+
+                        <thead>
+                            <tr>
+                                <th scope="col" class="time-header">TIME</th>
+                                <th scope="col" class="main-header">MAIN TENT ENTERTAINMENT</th>
+                                <th scope="col" class="market-header">MARKETPLACE</th>
+                                <th scope="col" class="church-header">INSIDE THE CHURCH</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr class="opening-row">
+                                <th scope="row" class="time">4:00 PM</th>
+                                <td class="main-cell">FESTIVAL OPENS</td>
+                                <td class="market-cell">MARKETPLACE OPENS</td>
+                                <td class="church-cell">CHURCH OPENS</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">4:30 PM</th>
+
+                                <td class="main-cell"></td>
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Ancient Faith Ministries Speaker Session</span>
+                                    <strong>Fr. Nicholas Louh</strong>
+                                    <span class="schedule-event-subtitle">Renewing Our Faith</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">5:30 PM</th>
+
+                                <td class="main-cell"></td>
+
+                                <td class="market-cell">
+                                    <span class="schedule-event-title schedule-signing">AFM Book Signing- Fr. Nicholas Louh</span>
+                                </td>
+
+                                <td class="church-cell"></td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">6:00 PM</th>
+
+                                <td class="main-cell">
+                                    <span class="schedule-event-title">Texas Two Step - Line Dancing</span>
+                                </td>
+
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Self-Guided Tour</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">7:00 PM</th>
+
+                                <td class="main-cell">
+                                    <span class="schedule-event-title">St. George Dabke Troupe</span>
+                                </td>
+
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Self-Guided Tour</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">7:30 PM</th>
+
+                                <td class="main-cell">
+                                    <span class="schedule-event-title">South Seas Productions Dancers</span>
+                                </td>
+
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Self-Guided Tour</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">8:00 PM</th>
+
+                                <td class="main-cell"></td>
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell schedule-closing">
+                                    CHURCH CLOSES
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">9:00 PM</th>
+
+                                <td class="main-cell"></td>
+
+                                <td class="market-cell schedule-closing">
+                                    MARKETPLACE CLOSES
+                                </td>
+
+                                <td class="church-cell closed-cell"></td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">10:00 PM</th>
+
+                                <td class="main-cell schedule-closing">
+                                    FESTIVAL CLOSES
+                                </td>
+
+                                <td class="market-cell closed-cell"></td>
+                                <td class="church-cell closed-cell"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+
+
+            <!-- =====================================================
+                 SATURDAY, OCTOBER 10
+                 ===================================================== -->
+            <article class="schedule-card" aria-labelledby="saturday-schedule-title">
+                <div class="schedule-scroll">
+                    <table class="festival-table saturday-table">
+                        <caption id="saturday-schedule-title">
+                            SATURDAY, OCTOBER 10
+                            <span class="schedule-hours">• 11:00 AM–10:00 PM</span>
+                        </caption>
+
+                        <colgroup>
+                            <col class="time-column">
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+
+                        <thead>
+                            <tr>
+                                <th scope="col" class="time-header">TIME</th>
+                                <th scope="col" class="main-header">MAIN TENT ENTERTAINMENT</th>
+                                <th scope="col" class="children-header">CHILDREN'S VILLAGE</th>
+                                <th scope="col" class="market-header">MARKETPLACE</th>
+                                <th scope="col" class="church-header">INSIDE THE CHURCH</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr class="opening-row">
+                                <th scope="row" class="time">11:00 AM</th>
+                                <td class="main-cell">FESTIVAL OPENS</td>
+                                <td class="children-cell">CHILDREN'S VILLAGE OPENS</td>
+                                <td class="market-cell">MARKETPLACE OPENS</td>
+                                <td class="church-cell">CHURCH OPENS/ Self-Guided Tour</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">11:30 AM</th>
+
+                                <td class="main-cell"></td>
+
+                                <td class="children-cell">
+                                    <span class="schedule-event-title">Children’s Reading Time</span>
+                                    <span class="schedule-event-subtitle">The Cellarer's Celery by Fr. Jeremy Davis</span>
+                                    <span class="schedule-event-reading">Read by Fr. Chris Abdelahad</span>
+                                </td>
+
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Self-Guided Tour</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">12:30 PM</th>
+
+                                <td class="main-cell"></td>
+                                <td class="children-cell"></td>
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Ancient Faith Ministries Speaker Session</span>
+                                    <strong>Fr. Andrew Stephen Damick</strong>
+                                    <span class="schedule-event-subtitle">“The Darkness Comprehended It Not”: Orthodox Christian Evangelism and Future in America</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">1:30 PM</th>
+
+                                <td class="main-cell">
+                                    <span class="schedule-event-title">Klein Collins High School</span>
+                                    <span class="schedule-event-title">Mariachi Band</span>
+                                </td>
+
+                                <td class="children-cell"></td>
+
+                                <td class="market-cell">
+                                    <span class="schedule-event-title schedule-signing">AFM Book Signing - Fr. Andrew Stephen Damick</span>
+                                </td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Self-Guided Tour</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">2:00 PM</th>
+
+                                <td class="main-cell"></td>
+
+                                <td class="children-cell">
+                                    <span class="schedule-event-title">Children’s Reading Time</span>
+                                    <span class="schedule-event-subtitle">The Cellerer’s Celery by Fr. Jeremy Davis</span>
+                                    <span class="schedule-event-reading">Read by Mat. Trudi Richte</span>
+                                </td>
+
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Self-Guided Tour</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">2:30 PM</th>
+
+                                <td class="main-cell"></td>
+                                <td class="children-cell"></td>
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Ancient Faith Ministries Speaker Session</span>
+                                    <strong>Dr. Philip Mamalakis</strong>
+                                    <span class="schedule-event-subtitle">Parenting in the Heat of the Moment</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">3:30 PM</th>
+
+                                <td class="main-cell"></td>
+                                <td class="children-cell"></td>
+
+                                <td class="market-cell">
+                                    <span class="schedule-event-title schedule-signing">AFM Book Signing - Dr. Philip Mamalakis</span>
+                                </td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Self-Guided Tour</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">4:30 PM</th>
+
+                                <td class="main-cell"></td>
+                                <td class="children-cell"></td>
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Ancient Faith Ministries Speaker Session</span>
+                                    <strong>Dr. Zachary Porcu</strong>
+                                    <span class="schedule-event-subtitle">Sacramental Life in a Secular Age</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">5:30 PM</th>
+
+                                <td class="main-cell">
+                                    <span class="schedule-event-title">Texas Two Step - Line Dancing</span>
+                                </td>
+
+                                <td class="children-cell"></td>
+
+                                <td class="market-cell">
+                                    <span class="schedule-event-title schedule-signing">AFM Book Signing - Dr. Zachary Porcu</span>
+                                </td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Self-Guided Tour</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">6:00 PM</th>
+
+                                <td class="main-cell"></td>
+
+                                <td class="children-cell schedule-closing">
+                                    CHILDREN'S VILLAGE CLOSES
+                                </td>
+
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Great Vespers</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">7:00 PM</th>
+
+                                <td class="main-cell">
+                                    <span class="schedule-event-title">Uzori Slavic Dancers</span>
+                                </td>
+
+                                <td class="children-cell closed-cell"></td>
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Self-Guided Tour</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">7:30 PM</th>
+
+                                <td class="main-cell">
+                                    <span class="schedule-event-title">Happy Greek Feet</span>
+                                    <span class="schedule-event-title">GGT Greek School of Texas</span>
+                                </td>
+
+                                <td class="children-cell closed-cell"></td>
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell">
+                                    <span class="schedule-event-title">Self-Guided Tour</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">8:00 PM</th>
+
+                                <td class="main-cell"></td>
+                                <td class="children-cell closed-cell"></td>
+                                <td class="market-cell"></td>
+
+                                <td class="church-cell schedule-closing">
+                                    CHURCH CLOSES
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">9:00 PM</th>
+
+                                <td class="main-cell"></td>
+                                <td class="children-cell closed-cell"></td>
+                                <td class="market-cell schedule-closing">
+                                    MARKETPLACE CLOSES
+                                </td>
+                                <td class="church-cell closed-cell"></td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row" class="time">10:00 PM</th>
+
+                                <td class="main-cell schedule-closing">
+                                    FESTIVAL CLOSES
+                                </td>
+
+                                <td class="children-cell closed-cell"></td>
+                                <td class="market-cell closed-cell"></td>
+                                <td class="church-cell closed-cell"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </div>  <!-- closes .festival-schedules -->
+    </section>  <!-- closes Schedule Content section -->
+
+
+<!-- Festival Map -->
+<section class="pt-4 pb-12 bg-white" aria-labelledby="festival-map-title">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+
+<h2 id="festival-map-title" class="font-serif text-3xl font-bold text-church-blue mb-6">
+Festival Map
+</h2>
+
+<!-- Clickable Map (UNCHANGED) -->
+ <button type="button"
+                onclick="openMapPreview()"
+                title="Click to enlarge festival map"
+                class="block w-full cursor-zoom-in">
+            <img src="FestivalMap.png"
+                 alt="Festival grounds map"
+                 loading="lazy"
+                 class="w-full h-auto object-contain">
+        </button>
+
+    <p class="text-sm text-gray-500 mt-3"> Tap or click the map to view it full size.
+    </p>
+</div>
+</section>
+
+<!-- NEW: Map Preview Overlay (same as About page) -->
+<div id="mapPreview"
+     class="hidden fixed inset-0 z-50 bg-black/80 p-4 flex items-center justify-center"
+     onclick="closeMapPreview()">
+
+    <div class="relative max-w-6xl max-h-[95vh]">
+        <button type="button"
+                onclick="closeMapPreview(event)"
+                class="absolute top-3 right-3 z-10 bg-white/90 hover:bg-white text-gray-800 rounded-full w-10 h-10 text-2xl shadow-lg"
+                aria-label="Close map preview">
+            &times;
+        </button>
+
+        <img src="FestivalMap.png"
+             alt="Festival grounds map enlarged"
+             class="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl">
+    </div>
+</div>
+
+<!-- REPLACED: was window.open(...) -->
+<script>
+function openMapPreview() {
+    document.getElementById('mapPreview').classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+}
+
+function closeMapPreview(event) {
+    if (event) {
+        event.stopPropagation();
+    }
+
+    document.getElementById('mapPreview').classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+}
+</script>
+    
+ <!-- Text and social icons below the ring -->
+     <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">    
 
         <p class="text-lg text-gray-700 leading-relaxed mb-8">
             Follow us on
@@ -285,12 +1038,6 @@
             </a>
         </div>
 
-        <div class="bg-stone-100 border border-stone-300 rounded-2xl p-8 shadow-sm">
-        <p class="font-serif text-2xl font-semibold text-church-blue">
-               Check back soon for the complete festival schedule!
-       
-            </p>
-        </div>
 
     </div>
 </section>
